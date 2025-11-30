@@ -27,7 +27,6 @@ After the script finishes, a few steps are required for a perfect setup:
 This is for the keybinds for rofi, if you don't need/want it, then you can ignore this
 Grant Script Permissions: Ensure the Hyprland scripts (used for your Rofi keybinds menu) can execute:
 ```chmod +x ~/.config/hypr/Scripts/keyhints```
-
 ```chmod +x ~/.config/hypr/Scripts/show-keyhints.sh```
 
 Reboot/Log In: Log out of the current session. At the Display Manager (Login Screen, e.g., GDM, LightDM, SDDM), select the Hyprland session and log back in.
