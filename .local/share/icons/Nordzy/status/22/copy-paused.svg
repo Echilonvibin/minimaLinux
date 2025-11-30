@@ -1,0 +1,9 @@
+<svg enable-background="new 0 0 24 24" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+ <g transform="matrix(.8829 0 0 .88294 .4052 .73537)" fill="#2e3440" opacity=".4">
+  <path transform="matrix(1.1326 0 0 1.1326 -.45895 -.83287)" d="m19.98 1.5-4.957 6.04c0.299 0.225 0.476 0.578 0.477 0.953v0.465l0.939 0.854 4.061-7.941m-15.438 4.85-3.563 3.092v1.188l3.563-1.188 1.438 5.75v-7.07c0-0.112 0.016-0.223 0.047-0.33l-0.297-0.729m9.5 3.564-0.25 0.199v6.906c-1e-3 0.332-0.139 0.65-0.383 0.875l5.02 1.52h0.326l0.033-0.27-3.563-8.04"/>
+ </g>
+ <g transform="translate(6.5,12.2)" fill="#2e3440" shape-rendering="auto">
+  <path d="m1.661-4a0.661 0.995 0 0 0-0.661 0.99v8.02a0.661 0.995 0 0 0 0.661 0.99h1.178a0.661 0.995 0 0 0 0.661-0.99v-8.01a0.661 0.995 0 0 0-0.661-1h-1.178z" color-rendering="auto" image-rendering="auto" solid-color="#000000" isolation="auto" mix-blend-mode="normal" white-space="normal"/>
+  <path d="m6.161-4a0.661 0.995 0 0 0-0.661 0.99v8.01a0.661 0.995 0 0 0 0.661 1h1.178a0.661 0.995 0 0 0 0.661-0.995v-8.01a0.661 0.995 0 0 0-0.661-0.995h-1.178z" color-rendering="auto" image-rendering="auto" solid-color="#000000" isolation="auto" mix-blend-mode="normal" white-space="normal"/>
+ </g>
+</svg>

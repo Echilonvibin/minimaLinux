@@ -1,0 +1,11 @@
+<svg width="24" height="24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style type="text/css">.ColorScheme-Text {
+        color:#2e3440;
+      }</style>
+ </defs>
+ <path class="ColorScheme-Text" d="m7 4c-1.662 0-3 1.338-3 3v10c0 1.662 1.338 3 3 3h10c1.662 0 3-1.338 3-3v-10c0-1.662-1.338-3-3-3zm0 1h10c1.108 0 2 0.892 2 2v10c0 1.108-0.892 2-2 2h-10c-1.108 0-2-0.892-2-2v-10c0-1.108 0.892-2 2-2z" fill="currentColor"/>
+ <g transform="matrix(1.3826 0 0 1.3826 1.177 .96349)">
+  <path class="ColorScheme-Text" d="M 6,5 10.4616,7.9827 6,10.9654 Z" fill="currentColor"/>
+ </g>
+</svg>

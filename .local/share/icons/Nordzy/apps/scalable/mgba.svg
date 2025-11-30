@@ -1,0 +1,49 @@
+<svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient435">
+   <stop stop-color="#a6aebf" offset="0"/>
+   <stop stop-color="#7b88a1" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient862-5" x1="7.9373" x2="7.9373" y1="15.081" y2="1.852" gradientTransform="matrix(3.847 0 0 3.847 -.57128 -.53932)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#4c566a" offset="0"/>
+   <stop stop-color="#ad85a5" offset="1"/>
+  </linearGradient>
+  <linearGradient id="k" x2="0" y1="532.8" y2="526.8" gradientTransform="matrix(2.3334 0 0 2.3333 -899.84 -1207.9)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#2e3440" offset="0"/>
+   <stop stop-color="#4c566a" offset="1"/>
+  </linearGradient>
+  <linearGradient id="l-3" x2="0" y1="536.8" y2="532.8" gradientTransform="matrix(4.6669 0 0 4.6669 -1832.2 -2467.6)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#2e3440" stop-opacity=".25098" offset="0"/>
+   <stop stop-color="#4c566a" stop-opacity=".25098" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient367" x1="43.914" x2="43.914" y1="30.496" y2="34.48" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#bf616a" offset="0"/>
+   <stop stop-color="#b54a55" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient375" x1="50.175" x2="50.175" y1="25.942" y2="29.926" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#bf616a" offset="0"/>
+   <stop stop-color="#b54a55" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient437" x1="24.224" x2="24.224" y1="48.752" y2="50.003" gradientTransform="matrix(1.2 0 0 1.2 -2.1405 -6.3001)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient435"/>
+  <linearGradient id="linearGradient445" x1="24.224" x2="24.224" y1="48.752" y2="50.003" gradientTransform="matrix(1.2 0 0 1.2 8.3481 -6.3001)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient435"/>
+  <filter id="filter1178" x="-.047999" y="-.047999" width="1.096" height="1.096" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.30691668"/>
+  </filter>
+ </defs>
+ <g transform="matrix(3.7796 0 0 3.7796 -.00096588 -.43033)">
+  <rect transform="matrix(.99138 0 0 1 .072989 .0019055)" x=".79375" y=".90545" width="15.346" height="15.346" rx="3.0526" ry="3.0526" fill="#000000" filter="url(#filter1178)" opacity=".15" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2489" style="mix-blend-mode:normal"/>
+ </g>
+ <rect x="3.5" y="3.5" width="57" height="57" rx="11.339" ry="11.339" fill="url(#linearGradient862-5)" stroke-width="3.847"/>
+ <g transform="matrix(1.2 0 0 1.2 -10.167 -4.8363)" stroke-linecap="square" stroke-width=".23334">
+  <path d="m50.167 25.622a2.3334 2.3333 0 0 0-2.3334 2.3333 2.3334 2.3333 0 0 0 2.3334 2.3333 2.3334 2.3333 0 0 0 2.3334-2.3333 2.3334 2.3333 0 0 0-2.3334-2.3333z" fill="url(#linearGradient375)"/>
+  <path d="m43.943 30.149a2.3334 2.3333 0 0 0-2.3334 2.3333 2.3334 2.3333 0 0 0 2.3334 2.3333 2.3334 2.3333 0 0 0 2.3334-2.3333 2.3334 2.3333 0 0 0-2.3334-2.3333z" fill="url(#linearGradient367)"/>
+ </g>
+ <g transform="matrix(1.2 0 0 1.2 -2.1668 -6.8363)" stroke-linecap="square">
+  <path d="m18.502 18.953c-5.1549 0-9.3338 4.1789-9.3338 9.3338s4.1789 9.3338 9.3338 9.3338 9.3338-4.1789 9.3338-9.3338-4.1789-9.3338-9.3338-9.3338z" fill="url(#l-3)" stroke-width="4.6669"/>
+  <path d="m16.169 21.287v4.6667h-4.6668v4.6667h4.6668v4.6667h4.6668v-4.6667h4.6668v-4.6667h-4.6668v-4.6667z" fill="url(#k)" stroke-width=".23334"/>
+ </g>
+ <rect x="23.12" y="51.511" width="7.7386" height="2.9438" rx="1.5774" ry="2.9438" fill="#2e3440" opacity=".37" stroke-width="1.8226"/>
+ <rect x="24.013" y="52.154" width="5.9527" height="1.659" rx="1.2134" ry="1.659" fill="url(#linearGradient437)" stroke-width="1.2"/>
+ <rect x="33.608" y="51.511" width="7.7386" height="2.9438" rx="1.5774" ry="2.9438" fill="#2e3440" opacity=".37" stroke-width="1.8226"/>
+ <rect x="34.501" y="52.154" width="5.9527" height="1.659" rx="1.2134" ry="1.659" fill="url(#linearGradient445)" stroke-width="1.2"/>
+</svg>

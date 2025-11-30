@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+ <path d="m19.5 12c0 4.141-3.359 7.5-7.5 7.5s-7.5-3.359-7.5-7.5 3.359-7.5 7.5-7.5 7.5 3.359 7.5 7.5z" fill="#ebcb8b"/>
+ <g fill="#ebcb8b">
+  <path d="m12 1.5 0.75 2.25h-1.5z"/>
+  <path d="m12 22.5-0.75-2.25h1.5z"/>
+ </g>
+ <g transform="matrix(0 1 -1 0 24 -5e-7)" fill="#ebcb8b">
+  <path d="m12 1.5 0.75 2.25h-1.5z"/>
+  <path d="m12 22.5-0.75-2.25h1.5z"/>
+ </g>
+ <g transform="matrix(-.70711 .70711 -.70711 -.70711 28.971 12)" fill="#ebcb8b">
+  <path d="m12 1.5 0.75 2.25h-1.5z"/>
+  <path d="m12 22.5-0.75-2.25h1.5z"/>
+ </g>
+ <g transform="matrix(.70711 .70711 -.70711 .70711 12 -4.9706)" fill="#ebcb8b">
+  <path d="m12 1.5 0.75 2.25h-1.5z"/>
+  <path d="m12 22.5-0.75-2.25h1.5z"/>
+ </g>
+</svg>

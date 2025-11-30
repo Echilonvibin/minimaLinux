@@ -1,0 +1,21 @@
+<svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="filter1178" x="-.047999" y="-.047999" width="1.096" height="1.096" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.30691668"/>
+  </filter>
+  <linearGradient id="linearGradient1340" x1="8.3017" x2="8.3017" y1="16.007" y2=".92604" gradientTransform="translate(-.0076499 -.0030174)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#d08770" offset="0"/>
+   <stop stop-color="#ebcb8b" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1402" x1="8.5149" x2="8.5149" y1="12.946" y2="3.9879" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#d8dee9" offset="0"/>
+   <stop stop-color="#eceff4" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g stroke-linecap="round" stroke-linejoin="round">
+  <rect transform="matrix(.99138 0 0 1 .072989 .0019055)" x=".79375" y=".90545" width="15.346" height="15.346" rx="3.0526" ry="3.0526" fill="#000000" filter="url(#filter1178)" opacity=".15" stroke-width="1.2489" style="mix-blend-mode:normal"/>
+  <rect x=".91839" y=".92302" width="15.081" height="15.081" rx="3" ry="3" fill="url(#linearGradient1340)" stroke-width="1.2274"/>
+  <rect x=".0045001" y=".003" width="16.924" height="16.927" fill="none" opacity=".15" stroke-width="1.052"/>
+ </g>
+ <path d="m9.7243 12.871c1.1713-0.24089 2.2572-0.98719 2.8867-1.9838 0.63013-0.99774 0.8473-2.1107 0.63102-3.2338-0.19402-1.0075-0.52186-1.6222-1.2516-2.3469-0.92064-0.91427-1.9194-1.3547-3.0784-1.3577-0.43002-0.0010776-0.49174 0.022017-0.75084 0.28113-0.26457 0.26457-0.27986 0.3078-0.24334 0.68791 0.058127 0.60496 0.27487 0.78413 1.0676 0.88255 1.0778 0.13381 1.7788 0.63287 2.225 1.5841 0.20738 0.44207 0.2468 0.62126 0.24297 1.1044-0.015195 1.9173-2.0854 3.2171-3.7646 2.3636-0.26975-0.13711-0.60512-0.36396-0.74527-0.50411-0.32188-0.32188-0.72477-1.0185-0.72576-1.2548-7.204e-4 -0.17308 0.026701-0.18021 0.69374-0.18021 0.53384 0 0.72837-0.030663 0.84096-0.13255 0.3236-0.29286 0.21017-0.4788-1.0778-1.7668-1.0263-1.0263-1.2625-1.2243-1.4608-1.2243-0.19865 0-0.43251 0.19699-1.4588 1.2288-1.2708 1.2777-1.3706 1.4378-1.0897 1.7483 0.11013 0.1217 0.25729 0.14647 0.87018 0.14647h0.73763l0.13924 0.58066c0.20541 0.85662 0.55252 1.4564 1.2413 2.1449 1.1469 1.1464 2.4984 1.5555 4.0707 1.2321z" fill="url(#linearGradient1402)" stroke-width=".080091"/>
+</svg>

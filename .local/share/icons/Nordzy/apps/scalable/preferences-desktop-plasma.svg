@@ -1,0 +1,36 @@
+<svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="filter1178" x="-.047999" y="-.047999" width="1.096" height="1.096" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.30691668"/>
+  </filter>
+  <linearGradient id="linearGradient1340" x1="8.355" x2="8.3996" y1="16.007" y2=".79375" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#d8dee9" offset="0"/>
+   <stop stop-color="#eceff4" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient4434" x1="439.57" x2="429.57" y1="502.8" y2="512.8" gradientTransform="matrix(.23625 0 0 .23625 -89.696 -112.94)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#2e3440" offset="0"/>
+   <stop stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <style type="text/css">.ColorScheme-Text {
+        color:#232629;
+      }</style>
+ </defs>
+ <g stroke-linecap="round" stroke-linejoin="round">
+  <rect transform="matrix(.99138 0 0 1 .072989 .0019055)" x=".79375" y=".90545" width="15.346" height="15.346" rx="3.0526" ry="3.0526" fill="#000000" filter="url(#filter1178)" opacity=".15" stroke-width="1.2489" style="mix-blend-mode:normal"/>
+  <rect x=".92604" y=".92604" width="15.081" height="15.081" rx="3" ry="3" fill="url(#linearGradient1340)" stroke-width="1.2274"/>
+  <rect x=".01215" y=".0060174" width="16.924" height="16.927" fill="none" opacity=".15" stroke-width="1.052"/>
+ </g>
+ <flowRoot transform="matrix(.23625 0 0 .23625 -89.696 -112.94)" font-family="sans-serif" font-size="32.5px" line-height="125%">
+  <flowRegion>
+   <rect x="452.32" y="489.8" width="87.75" height="48.75"/>
+  </flowRegion>
+  <flowPara>Plasm</flowPara>
+ </flowRoot>
+ <g transform="matrix(.85703 0 0 .85703 1.0028 1.4551)" stroke-width=".23625">
+  <path d="m10.844 2.5415-1.4175 1.4175 2.5987 2.5987-2.5987 2.5987 1.4175 1.4175 4.0162-4.0162z" fill="#434c5e" fill-rule="evenodd"/>
+  <rect x="4.8787" y="2.7777" width="1.4765" height="1.4765" rx=".73827" fill="#d08770"/>
+  <rect x="2.5754" y="7.3847" width="2.1262" height="2.1262" rx="1.0631" fill="#a3be8c"/>
+  <rect x="5.6466" y="11.991" width="3.0712" height="3.0712" rx="1.5356" fill="#5e81ac"/>
+  <path d="m10.371 8.2114 1.4175 1.4175 1.6537-1.6537-1.4175-1.4175z" fill="url(#linearGradient4434)" fill-rule="evenodd" opacity=".9"/>
+ </g>
+</svg>

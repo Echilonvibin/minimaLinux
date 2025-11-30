@@ -1,0 +1,6 @@
+<svg width="16" height="16" viewBox="0 0 4.5156 4.5156" xmlns="http://www.w3.org/2000/svg">
+ <g transform="matrix(1.0001 0 0 1.0001 -.847 -.847)" stroke-width=".727">
+  <path d="m2.54 1.976v2.258l1.693-1.129z" fill="#2e3440"/>
+ </g>
+ <path transform="scale(.28222)" d="m8 0c-4.412 0-8 3.588-8 8s3.588 8 8 8 8-3.588 8-8-3.588-8-8-8zm0 1a7 7 0 0 1 7 7 7 7 0 0 1-7 7 7 7 0 0 1-7-7 7 7 0 0 1 7-7z" color-rendering="auto" fill="#2e3440" fill-opacity=".941" image-rendering="auto" shape-rendering="auto"/>
+</svg>

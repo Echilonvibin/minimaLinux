@@ -1,0 +1,28 @@
+<svg width="32" height="32" version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="f" x="-.038571" y="-.03375" width="1.0771" height="1.0675" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.22500022"/>
+  </filter>
+  <filter id="e" x="-.019286" y="-.27" width="1.0386" height="1.54" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.225"/>
+  </filter>
+  <linearGradient id="linearGradient863" x1="399.57" x2="399.57" y1="545.8" y2="517.8" gradientTransform="translate(-384.57 -515.8)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#2e3440" offset="0"/>
+   <stop stop-color="#4c566a" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1245" x1="15.827" x2="15.827" y1="21.936" y2="16.176" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#a3be8c" offset="0"/>
+   <stop stop-color="#8fbcbb" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1377" x1="15.375" x2="15.375" y1="24.945" y2="22.965" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#d08770" offset="0"/>
+   <stop stop-color="#ebcb8b" offset="1"/>
+  </linearGradient>
+ </defs>
+ <rect x="1" y=".99997" width="30" height="30" rx="8" ry="8" fill="url(#linearGradient863)"/>
+ <path d="m9 22v1h14v-1l-5-8v-6h1v-1h-6v0.99973h1v6.0003z" fill-rule="evenodd" filter="url(#f)" opacity=".25"/>
+ <path d="m9 22v1h14v-1l-5-8v-6h1v-1h-6v0.99973h1v6.0003z" fill="#d8dee9" fill-rule="evenodd"/>
+ <rect x="2" y="22.99" width="28" height="2" color="#000000" color-rendering="auto" filter="url(#e)" image-rendering="auto" opacity=".25" shape-rendering="auto"/>
+ <rect x="2" y="22.99" width="28" height="2" color="#000000" color-rendering="auto" fill="url(#linearGradient1377)" image-rendering="auto" shape-rendering="auto"/>
+ <path d="m14 16-3.7 6h11.4l-3.7-6h-2z" fill="url(#linearGradient1245)" fill-rule="evenodd"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+ <path d="m8 1.5c3.808 0 5.5 1.818 5.5 1.818v4.76c0 4.365-5.5 6.389-5.5 6.389s-5.5-2.024-5.5-6.389v-4.76s1.692-1.818 5.5-1.818z" fill="#bf616a" stroke="#b54a55"/>
+ <g transform="matrix(.70711 -.70711 .70711 .70711 -2.9602 8.6287)" fill="#2e3440">
+  <rect x="5" y="6" width="7" height="2"/>
+  <rect x="7.5" y="3.5" width="2" height="7"/>
+ </g>
+</svg>

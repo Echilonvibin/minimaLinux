@@ -1,0 +1,7 @@
+<svg width="16" height="16" viewBox="0 0 4.5156 4.5156" xmlns="http://www.w3.org/2000/svg">
+ <rect x="1.976" y="1.411" width=".564" height="3.104" rx=".212" fill="#2e3440"/>
+ <path d="m0.701 0c-0.934 0.934-0.934 2.458 0 3.393l0.398-0.398c-0.719-0.719-0.719-1.877 0-2.596z" color-rendering="auto" fill="#2e3440" image-rendering="auto" opacity=".4" shape-rendering="auto"/>
+ <path d="m1.459 0.895c-0.44 0.44-0.44 1.158 0 1.598l0.199-0.199c-0.332-0.332-0.332-0.867 0-1.199z" color-rendering="auto" fill="#2e3440" image-rendering="auto" opacity=".4" shape-rendering="auto"/>
+ <path d="m3.815 0c0.934 0.934 0.934 2.458 0 3.393l-0.398-0.398c0.719-0.719 0.719-1.877 0-2.596z" color-rendering="auto" fill="#2e3440" image-rendering="auto" opacity=".4" shape-rendering="auto"/>
+ <path d="m3.057 0.895c0.44 0.44 0.44 1.158 0 1.598l-0.199-0.199c0.332-0.332 0.332-0.867 0-1.199z" color-rendering="auto" fill="#2e3440" image-rendering="auto" opacity=".4" shape-rendering="auto"/>
+</svg>

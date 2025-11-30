@@ -1,0 +1,15 @@
+<svg enable-background="new" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+ <circle cx="24" cy="24" r="15" fill="#ebcb8b"/>
+ <g fill="#ebcb8b">
+  <path d="m24 3 1.5 4h-3z"/>
+  <path d="m24 45-1.5-4h3z"/>
+  <path d="m45 24-4 1.5v-3z"/>
+  <path d="m3 24 4-1.5v3z"/>
+ </g>
+ <g transform="matrix(.70711 .70711 -.70711 .70711 24 -9.9411)" fill="#ebcb8b">
+  <path d="m24 3 1.5 4h-3z"/>
+  <path d="m24 45-1.5-4h3z"/>
+  <path d="m45 24-4 1.5v-3z"/>
+  <path d="m3 24 4-1.5v3z"/>
+ </g>
+</svg>

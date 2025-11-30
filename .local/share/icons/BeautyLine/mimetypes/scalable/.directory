@@ -1,0 +1,6 @@
+[Dolphin]
+SortOrder=1
+SortRole=modificationtime
+Timestamp=2021,9,30,19,46,8.728
+Version=4
+VisibleRoles=CustomizedDetails,Details_text,Details_size,Details_modificationtime,Details_width,Details_height

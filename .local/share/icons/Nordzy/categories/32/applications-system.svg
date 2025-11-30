@@ -1,0 +1,49 @@
+<svg width="32" height="32" version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient id="linearGradient1551" x1="26.48" x2="2.27" y1="2.8799" y2="26.469" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#88c0d0" offset="0"/>
+   <stop stop-color="#5e81ac" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1879" x1="29.977" x2="18.771" y1="4.7412" y2="16.987" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#bf616a" offset="0"/>
+   <stop stop-color="#b48ead" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient2079" x1="16.961" x2="5.6221" y1="17.649" y2="29.902" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#a6aebf" offset="0"/>
+   <stop stop-color="#7b88a1" offset="1"/>
+  </linearGradient>
+  <filter id="filter3400" x="-.10294" y="-.48352" width="1.2059" height="1.967" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.44145899"/>
+  </filter>
+  <filter id="filter4794" x="-.10294" y="-.48352" width="1.2059" height="1.967" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.44145899"/>
+  </filter>
+ </defs>
+ <rect x="1.0001" y="1" width="30" height="30" rx="6.965" ry="6.965" fill="#eceff4" stroke-width="2.0247"/>
+ <g stroke-width="2.0247">
+  <path d="m3.1975 29.121c-1.3539-1.2691-2.1974-3.0755-2.1974-5.0862v-16.07c0-3.8586 3.1064-6.965 6.965-6.965h16.07c2.0237 0 3.8404 0.85443 5.1107 2.2237" fill="url(#linearGradient1551)"/>
+  <path d="m16.172 16.172 12.974-12.948c1.1518 1.2416 1.8543 2.9064 1.8543 4.7413v16.07c0 1.8356-0.70302 3.501-1.8556 4.7427" fill="url(#linearGradient1879)"/>
+  <path d="m29.144 28.778c-1.2702 1.3684-3.0864 2.2223-5.1094 2.2223h-16.07c-1.8479 0-3.5233-0.71247-4.7676-1.8788l12.975-12.949" fill="url(#linearGradient2079)"/>
+  <path d="m3.1975 29.121c-1.3539-1.2691-2.1974-3.0755-2.1974-5.0862v-16.07c0-3.8586 3.1064-6.965 6.965-6.965h16.07c2.0237 0 3.8404 0.85443 5.1107 2.2237" fill="url(#linearGradient1551)"/>
+  <path d="m16.172 16.172 12.974-12.948c1.1518 1.2416 1.8543 2.9064 1.8543 4.7413v16.07c0 1.8356-0.70302 3.501-1.8556 4.7427" fill="url(#linearGradient1879)"/>
+  <path d="m29.144 28.778c-1.2702 1.3684-3.0864 2.2223-5.1094 2.2223h-16.07c-1.8479 0-3.5233-0.71247-4.7676-1.8788l12.975-12.949" fill="url(#linearGradient2079)"/>
+ </g>
+ <g transform="translate(0 .49207)" stroke-linecap="round">
+  <g transform="translate(.41111 .5625)" fill="#2e3440" filter="url(#filter3400)" opacity=".6" stroke="#2e3440" style="mix-blend-mode:normal">
+   <path d="m7.5287 11.258h16.12" stroke-width="1.2"/>
+   <ellipse cx="19.085" cy="11.258" rx="1.5" ry="1.75" stroke-linejoin="round" stroke-width="1.2656"/>
+  </g>
+  <g transform="translate(.41111)" fill="#434c5e" stroke="#434c5e">
+   <path d="m7.5287 11.258h16.12" stroke-width="1.2"/>
+   <ellipse cx="19.085" cy="11.258" rx="1.5" ry="1.75" stroke-linejoin="round" stroke-width="1.2656"/>
+  </g>
+  <g transform="translate(.41111 .5)" fill="#2e3440" filter="url(#filter4794)" opacity=".5" stroke="#2e3440">
+   <path d="m7.5287 19.258h16.12" stroke-width="1.2"/>
+   <ellipse cx="11.085" cy="19.258" rx="1.5" ry="1.75" stroke-linejoin="round" stroke-width="1.2656"/>
+  </g>
+  <g transform="translate(.41111)" fill="#434c5e" stroke="#434c5e">
+   <path d="m7.5287 19.258h16.12" stroke-width="1.2"/>
+   <ellipse cx="11.085" cy="19.258" rx="1.5" ry="1.75" stroke-linejoin="round" stroke-width="1.2656"/>
+  </g>
+ </g>
+</svg>

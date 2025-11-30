@@ -1,0 +1,45 @@
+<svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <pattern id="pattern22492" patternTransform="matrix(.20334 0 0 1 22.847 -44.264)" xlink:href="#pattern21992"/>
+  <pattern id="pattern22488" patternTransform="matrix(.20334 0 0 1 16.822 -44.264)" xlink:href="#pattern21992"/>
+  <pattern id="pattern22484" patternTransform="matrix(.20334 0 0 1 10.796 -44.264)" xlink:href="#pattern21992"/>
+  <pattern id="pattern21992" patternTransform="matrix(.20334 0 0 1 4.771 -44.264)" xlink:href="#pattern21918"/>
+  <pattern id="pattern21918" patternTransform="matrix(.12854 0 0 1 4.3034 -44.264)" xlink:href="#pattern20962-6"/>
+  <linearGradient id="linearGradient1391" x1="8.355" x2="8.3167" y1="16.007" y2="-2.1011" gradientTransform="matrix(3.7796,0,0,3.7796,-1.5226e-4,-1.5178e-4)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#a3be8c" offset="0"/>
+   <stop stop-color="#8fbcbb" offset="1"/>
+  </linearGradient>
+  <radialGradient id="radialGradient19506" cx="470.71" cy="-16.74" r="2.1435" gradientTransform="matrix(6.6946 .030452 -.021541 4.7356 -2680.9 48.199)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#d8dee9" offset="0"/>
+   <stop stop-color="#2e3440" offset="1"/>
+  </radialGradient>
+  <pattern id="pattern20962-6" width="4.2870872" height="4.8982351" patternTransform="translate(463.13 -12.582)" patternUnits="userSpaceOnUse">
+   <g transform="translate(-468.57 19.189)">
+    <rect x="468.57" y="-17.52" width="2.1605" height="3.2294" fill="url(#radialGradient19506)"/>
+    <rect x="470.7" y="-19.189" width="2.1605" height="3.2294" fill="url(#radialGradient19506)"/>
+   </g>
+  </pattern>
+  <radialGradient id="radialGradient22637" cx="32" cy="30.636" r="2.4824" gradientTransform="matrix(5.1963 .0021234 -.0016925 4.1418 -134.23 -96.319)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#d8dee9" offset="0"/>
+   <stop stop-color="#d8dee9" stop-opacity="0" offset="1"/>
+  </radialGradient>
+  <filter id="filter1178-3" x="-.047999" y="-.047999" width="1.096" height="1.096" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.30691668"/>
+  </filter>
+ </defs>
+ <g transform="matrix(3.7796 0 0 3.7796 -.00096588 -.43033)">
+  <rect transform="matrix(.99138 0 0 1 .072989 .0019055)" x=".79375" y=".90545" width="15.346" height="15.346" rx="3.0526" ry="3.0526" fill="#000000" filter="url(#filter1178-3)" opacity=".15" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2489" style="mix-blend-mode:normal"/>
+ </g>
+ <g stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3.4711" y="3.4887" width="57" height="57" rx="11.339" ry="11.339" fill="#eceff4" stroke-width="4.6391"/>
+  <rect x=".017008" y=".011338" width="63.966" height="63.977" fill="none" opacity=".15" stroke-width="3.9761"/>
+  <rect x="3.4999" y="3.4999" width="57" height="57" rx="11.339" ry="11.339" fill="url(#linearGradient1391)" stroke-width="4.6391"/>
+ </g>
+ <rect transform="rotate(90)" x="3.4999" y="-35.246" width="30.74" height="6.4923" fill="#2e3440"/>
+ <rect transform="rotate(90)" x="3.4999" y="-34.483" width="6.0695" height="4.9654" fill="url(#pattern21992)"/>
+ <rect transform="rotate(90)" x="9.5252" y="-34.483" width="6.0695" height="4.9654" fill="url(#pattern22484)"/>
+ <rect transform="rotate(90)" x="15.551" y="-34.483" width="6.0695" height="4.9654" fill="url(#pattern22488)"/>
+ <rect transform="rotate(90)" x="21.576" y="-34.483" width="6.0695" height="4.9654" fill="url(#pattern22492)"/>
+ <rect transform="rotate(90)" x="3.4999" y="-29.566" width="30.544" height=".23774" fill="#2e3440"/>
+ <path d="m29.518 27.602v6.0684h4.9648v-6.0684h-4.9648zm0.74805 3.5703h3.4688v1.8203h-3.4688v-1.8203z" fill="url(#radialGradient22637)"/>
+</svg>

@@ -1,0 +1,26 @@
+<svg id="svg20" width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg">
+ <defs id="defs10">
+  <linearGradient id="linearGradient1062" x1="47.077255" x2="46.15699" y1="203.89368" y2="296.6377" gradientTransform="matrix(.1818146 0 0 .1818146 4.7437134e-7 -37.065933)" gradientUnits="userSpaceOnUse">
+   <stop id="stop1056" style="stop-color:#8fbcbb" offset="0"/>
+   <stop id="stop1058" style="stop-color:#a3be8c" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient892" x1="196.842" x2="193.14655" y1="31.418701" y2="383.39557" gradientUnits="userSpaceOnUse">
+   <stop id="stop826" style="stop-color:#d8dee9" offset="0"/>
+   <stop id="stop828" style="stop-color:#eceff4" offset="1"/>
+  </linearGradient>
+  <filter id="filter934" x="-.072321429" y="-.077884615" width="1.1446429" height="1.1557692" style="color-interpolation-filters:sRGB">
+   <feGaussianBlur id="feGaussianBlur936" stdDeviation="6.75"/>
+  </filter>
+ </defs>
+ <g id="g18" stroke-linecap="round" stroke-linejoin="round">
+  <rect id="rect14" x=".92604" y=".92604" width="15.081" height="15.081" rx="3" ry="3" fill="url(#linearGradient1340)" stroke-width="1.2274" style="fill:none"/>
+  <rect id="rect16" x=".01215" y=".0060174" width="16.924" height="16.927" fill="none" opacity=".15" stroke-width="1.052"/>
+  <circle id="path1374-6" cx="8.4665003" cy="8.4665003" r="8.4665003" style="fill:url(#linearGradient1062)"/>
+  <g id="layer3" transform="matrix(.04810511 0 0 .04810511 -.76968112 -1.5393629)" style="fill:#2e3440;filter:url(#filter934);opacity:.318;stroke:#ffffff">
+   <path id="path4193" d="m80 104v144c0 35.15671 28.84329 64 64 64h96c35.15671 0 64-28.84329 64-64v-80c0-26.32015-21.67985-48-48-48-12.29591 0-23.46684 4.8602-32 12.58594-8.53316-7.72574-19.70409-12.58594-32-12.58594-26.32015 0-48 21.67985-48 48v80h32v-80c0-9.02607 6.97393-16 16-16s16 6.97393 16 16v80h32v-80c0-9.02607 6.97393-16 16-16s16 6.97393 16 16v80c0 17.86263-14.13737 32-32 32h-96c-17.86263 0-32-14.13737-32-32v-144z" style="color-rendering:auto;color:#000000;dominant-baseline:auto;fill:#2e3440;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;image-rendering:auto;isolation:auto;mix-blend-mode:normal;opacity:1;shape-padding:0;shape-rendering:auto;solid-color:#000000;stroke:none;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+  </g>
+  <g id="layer3-7" transform="matrix(.04810511 0 0 .04810511 -.76968112 -1.5393629)" style="fill:url(#linearGradient892);stroke:#ffffff">
+   <path id="path4193-5" d="m80 104v144c0 35.15671 28.84329 64 64 64h96c35.15671 0 64-28.84329 64-64v-80c0-26.32015-21.67985-48-48-48-12.29591 0-23.46684 4.8602-32 12.58594-8.53316-7.72574-19.70409-12.58594-32-12.58594-26.32015 0-48 21.67985-48 48v80h32v-80c0-9.02607 6.97393-16 16-16s16 6.97393 16 16v80h32v-80c0-9.02607 6.97393-16 16-16s16 6.97393 16 16v80c0 17.86263-14.13737 32-32 32h-96c-17.86263 0-32-14.13737-32-32v-144z" style="color-rendering:auto;color:#000000;dominant-baseline:auto;fill:url(#linearGradient892);font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;image-rendering:auto;isolation:auto;mix-blend-mode:normal;shape-padding:0;shape-rendering:auto;solid-color:#000000;stroke:none;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+  </g>
+ </g>
+</svg>

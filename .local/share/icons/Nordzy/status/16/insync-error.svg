@@ -1,0 +1,6 @@
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+ <circle cx="8" cy="8.5" r="1.5" fill="#bf616a"/>
+ <rect x="7" y="11" width="2" height="5" rx=".336" ry=".247" fill="#bf616a"/>
+ <path d="m9 3c-3.302 0-6 2.698-6 6h2c0-2.221 1.779-4 4-4z" color-rendering="auto" fill="#bf616a" image-rendering="auto" shape-rendering="auto" isolation="auto" mix-blend-mode="normal"/>
+ <path d="m9 0c-4.959 0-9 4.04-9 9h2c0-3.878 3.122-7 7-7z" color-rendering="auto" fill="#bf616a" image-rendering="auto" shape-rendering="auto" isolation="auto" mix-blend-mode="normal"/>
+</svg>

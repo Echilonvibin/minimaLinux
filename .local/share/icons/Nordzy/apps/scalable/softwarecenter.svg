@@ -1,0 +1,48 @@
+<svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient8955" x1="8.4771" x2="8.4784" y1="12.539" y2="4.3762" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#5e81ac" offset="0"/>
+   <stop stop-color="#88c0d0" offset="1"/>
+  </linearGradient>
+  <filter id="filter9708" x="-.027" y="-.027" width="1.054" height="1.054" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.010417764"/>
+  </filter>
+  <linearGradient id="linearGradient1446" x1="8.3518" x2="8.3702" y1="10.272" y2="8.1255" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#8eadd0" offset="0"/>
+   <stop stop-color="#fff" offset="1"/>
+  </linearGradient>
+  <filter id="filter1178" x="-.047999" y="-.047999" width="1.096" height="1.096" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.30691668"/>
+  </filter>
+  <linearGradient id="linearGradient1340" x1="8.355" x2="8.3996" y1="16.007" y2=".79375" gradientTransform="translate(-.0076499 -.0030174)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#d8dee9" offset="0"/>
+   <stop stop-color="#eceff4" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g stroke-linecap="round" stroke-linejoin="round">
+  <rect transform="matrix(.99138 0 0 1 .072989 .0019055)" x=".79375" y=".90545" width="15.346" height="15.346" rx="3.0526" ry="3.0526" fill="#000000" filter="url(#filter1178)" opacity=".15" stroke-width="1.2489" style="mix-blend-mode:normal"/>
+  <rect x=".91839" y=".92302" width="15.081" height="15.081" rx="3" ry="3" fill="url(#linearGradient1340)" stroke-width="1.2274"/>
+  <rect x=".0045001" y=".003" width="16.924" height="16.927" fill="none" opacity=".15" stroke-width="1.052"/>
+ </g>
+ <g transform="translate(-.0079095 .0050228)">
+  <ellipse cx="8.4668" cy="8.4585" rx="4.6744" ry="4.6955" fill="url(#linearGradient8955)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9818"/>
+  <rect id="rect9550" x="6.4795" y="6.5028" width=".92602" height=".92602" filter="url(#filter9708)" opacity=".15" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.0583"/>
+  <use id="use9654" transform="translate(1.5875)" width="100%" height="100%" xlink:href="#rect9550"/>
+  <use id="use9656" transform="translate(1.5875)" width="100%" height="100%" xlink:href="#use9654"/>
+  <use id="use9658" transform="translate(-2e-8,1.5875)" width="100%" height="100%" xlink:href="#use9656"/>
+  <use id="use9660" transform="translate(-1.5875)" width="100%" height="100%" xlink:href="#use9658"/>
+  <use id="use9662" transform="translate(-1.5875)" width="100%" height="100%" xlink:href="#use9660"/>
+  <use id="use9664" transform="translate(0,1.5875)" width="100%" height="100%" xlink:href="#use9662"/>
+  <use id="use9666" transform="translate(1.5875)" width="100%" height="100%" xlink:href="#use9664"/>
+  <use transform="translate(1.5875)" width="100%" height="100%" xlink:href="#use9666"/>
+  <rect id="rect9379" x="8.0038" y="7.9955" width=".92602" height=".92602" fill="url(#linearGradient1446)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.292"/>
+  <use id="use9483" transform="translate(0,-1.5875)" width="100%" height="100%" fill="url(#linearGradient1446)" xlink:href="#rect9379"/>
+  <use id="use9485" transform="translate(1.5875)" width="100%" height="100%" fill="url(#linearGradient1446)" xlink:href="#use9483"/>
+  <use id="use9487" transform="translate(-3.1749)" width="100%" height="100%" fill="url(#linearGradient1446)" xlink:href="#use9485"/>
+  <use id="use9489" transform="translate(0,1.5875)" width="100%" height="100%" fill="url(#linearGradient1446)" xlink:href="#use9487"/>
+  <use id="use9491" transform="translate(0,1.5875)" width="100%" height="100%" fill="url(#linearGradient1446)" xlink:href="#use9489"/>
+  <use id="use9493" transform="translate(1.5875)" width="100%" height="100%" fill="url(#linearGradient1446)" xlink:href="#use9491"/>
+  <use id="use9495" transform="translate(1.5875,-1.5875)" width="100%" height="100%" fill="url(#linearGradient1446)" xlink:href="#use9493"/>
+  <use transform="translate(0,1.5875)" width="100%" height="100%" fill="url(#linearGradient1446)" xlink:href="#use9495"/>
+ </g>
+</svg>
