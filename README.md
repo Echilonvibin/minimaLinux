@@ -77,12 +77,19 @@ Step 1: Download the Installer Script
 Open your terminal and use wget to download the installation script directly to your home directory:
 
 ```
-wget [https://raw.githubusercontent.com/Gamma195/echilon-dotfiles/main/install-dots.sh](https://raw.githubusercontent.com/Gamma195/echilon-dotfiles/main/install-dots.sh)
+git clone https://github.com/Gamma195/echilon-dotfiles.git
+
+```
+
+```
+cd ./echilon-dotfiles
 ```
 
 Step 2: Run the Installation
 
-Grant the script executable permission and run it. The script will handle everything: installing all required packages (including yay if necessary) and deploying the configuration files.
+Grant the script executable permission and run it. The script will handle everything: installing all required packages (including yay if necessary) 
+and deploying the configuration files.
+
 ```
 chmod +x install-dots.sh
 ./install-dots.sh
