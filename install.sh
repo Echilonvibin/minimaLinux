@@ -1,85 +1,126 @@
 #!/bin/bash
 
 # --- Configuration ---
-# DEFINITIVE REPOSITORY URL
-DOTFILES_REPO="https://github.com/Gamma195/echilon-dotfiles"
-INSTALL_DIR="$HOME/Source/echilon-dotfiles" # Where the repo will be cloned
-CONFIG_DIR="$HOME/.config"         # Standard config directory
+REPO_NAME="echilon-dotfiles"
+# Explicitly set the URL for cloning
+REPO_URL="https://github.com/Gamma195/$REPO_NAME.git"
+INSTALL_DIR="$HOME/Source/$REPO_NAME"
+CONFIG_DIR="$HOME/.config"
+
+# Packages required from the official Arch repositories
+REQUIRED_PACKAGES=(
+    hyprland hyprctl rofi nemo vivaldi code
+    grim slurp wayland-protocols wget imagemagick
+    fish starship kitty fastfetch
+)
+
+# Packages required from the AUR (using yay)
+AUR_PACKAGES=(
+    missioncenter yt-dlp warehouse
+    linux-wallpaperengine-git upscaler video-downloader
+)
+
+# List of configuration directories/files to back up and link
+CONFIG_TARGETS=(
+    "hypr"
+    "rofi"
+    "kitty"
+    "fish"
+    "starship"
+    "fastfetch"
+)
 
 # --- Functions ---
 
-# Function to check for yay and install it if missing
-install_yay() {
+# Check for and install yay (AUR helper)
+check_and_install_yay() {
     if ! command -v yay &> /dev/null; then
-        echo "yay (AUR helper) not found. Installing it now..."
-        sudo pacman -S --needed git base-devel --noconfirm
+        echo "Yay not found. Installing yay..."
+
+        # Install base-devel and git if not present
+        sudo pacman -S --noconfirm base-devel git
+
+        # Clone yay, build, and install
         git clone https://aur.archlinux.org/yay.git /tmp/yay
         (cd /tmp/yay && makepkg -si --noconfirm)
         rm -rf /tmp/yay
+
+        if command -v yay &> /dev/null; then
+            echo "Yay installed successfully."
+        else
+            echo "Error: Failed to install yay. AUR package installation will be skipped."
+            return 1
+        fi
     else
-        echo "yay is already installed."
+        echo "Yay is already installed. Skipping installation."
     fi
+    return 0
 }
 
-# Function to install all necessary packages
+# Install necessary packages using pacman and yay
 install_packages() {
-    echo "Installing core Hyprland and utility packages..."
-
-    # Core Hyprland components, essential Wayland utilities, and shell tools (installed via pacman)
-    REQUIRED_PACKAGES=(
-        hyprland hyprctl rofi nemo vivaldi code
-        grim slurp wayland-protocols wget imagemagick
-        fish starship kitty
-    )
-
-    # User-requested packages (AUR installation via yay)
-    AUR_PACKAGES=(
-        missioncenter
-        yt-dlp
-        warehouse
-        linux-wallpaperengine-git
-        upscaler
-        video-downloader
-    )
-
-    # Use pacman for official repos
+    echo "--- 1. INSTALLING PACMAN PACKAGES ---"
     sudo pacman -Syu --noconfirm "${REQUIRED_PACKAGES[@]}"
 
-    # Use yay for AUR packages
-    install_yay
-    yay -S --noconfirm "${AUR_PACKAGES[@]}"
-
-    echo "Package installation complete."
+    echo "--- 2. INSTALLING AUR PACKAGES ---"
+    if check_and_install_yay; then
+        yay -S --noconfirm "${AUR_PACKAGES[@]}"
+    fi
 }
 
-# Function to clone and deploy dotfiles
+# Deploy dotfiles, creating backups of existing files
 deploy_dots() {
-    echo "Cloning dotfiles from $DOTFILES_REPO to $INSTALL_DIR..."
+    echo "--- 3. DEPLOYING DOTFILES (CREATING BACKUPS) ---"
 
     # Clone the repository
-    git clone "$DOTFILES_REPO" "$INSTALL_DIR" || { echo "Failed to clone repository. Exiting."; exit 1; }
-
-    echo "Creating backups and symbolic links..."
-
-    # Ensure .config exists
-    mkdir -p "$CONFIG_DIR"
-
-    # --- Setup config directory symlinks ---
-
-    # Hyprland config
-    if [ -d "$CONFIG_DIR/hypr" ]; then
-        mv "$CONFIG_DIR/hypr" "$CONFIG_DIR/hypr.bak.$(date +%Y%m%d%H%M%S)"
+    if [ -d "$INSTALL_DIR" ]; then
+        echo "Repository already cloned. Skipping clone."
+    else
+        echo "Cloning $REPO_URL to $INSTALL_DIR..."
+        git clone "$REPO_URL" "$INSTALL_DIR"
     fi
-    ln -s "$INSTALL_DIR/.config/hypr" "$CONFIG_DIR/hypr"
-    echo "Created symlink for $CONFIG_DIR/hypr"
 
-    # Rofi config
-    if [ -d "$CONFIG_DIR/rofi" ]; then
-        mv "$CONFIG_DIR/rofi" "$CONFIG_DIR/rofi.bak.$(date +%Y%m%d%H%M%S)"
-    fi
-    ln -s "$INSTALL_DIR/.config/rofi" "$CONFIG_DIR/rofi"
-    echo "Created symlink for $CONFIG_DIR/rofi"
+    # Create symlinks and backups
+    for target in "${CONFIG_TARGETS[@]}"; do
+        FULL_PATH="$CONFIG_DIR/$target"
 
-    # Kitty config
-    if [ -d "$CONFIG_DIR/kitty" ]; then
-        mv "$CONFIG_DIR/kitty" "$CONFIG_DIR/kitty.bak.$(date +%Y%m%d%H%
+        # CRITICAL: If the target exists (is a file or directory), back it up.
+        if [ -d "$FULL_PATH" ] || [ -f "$FULL_PATH" ] || [ -L "$FULL_PATH" ]; then
+            # Create a timestamped backup
+            TIMESTAMP=$(date +%Y%m%d%H%M%S)
+            BACKUP_NAME="$target.bak.$TIMESTAMP"
+
+            echo "-> Backing up existing $target to $BACKUP_NAME"
+            mv "$FULL_PATH" "$CONFIG_DIR/$BACKUP_NAME"
+        fi
+
+        # Create the new symbolic link
+        echo "-> Creating symlink for $target"
+        ln -s "$INSTALL_DIR/.config/$target" "$FULL_PATH"
+    done
+
+    echo "Dotfiles deployed successfully. Original configs backed up."
+}
+
+# Final permission adjustments
+set_permissions() {
+    echo "--- 4. SETTING SCRIPT PERMISSIONS ---"
+    # Set execution permissions for Hyprland scripts
+    chmod +x "$CONFIG_DIR/hypr/Scripts/keyhints"
+    chmod +x "$CONFIG_DIR/hypr/Scripts/show-keyhints.sh"
+    echo "Script permissions set."
+}
+
+
+# --- Main Execution ---
+
+echo "Starting Hyprland Dotfiles Installation..."
+echo "=========================================="
+
+install_packages
+deploy_dots
+set_permissions
+
+echo "=========================================="
+echo "Installation Complete!"
+echo "Please reboot or log out and select the Hyprland session."
