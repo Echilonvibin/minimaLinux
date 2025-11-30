@@ -1,7 +1,7 @@
 ⚠️ IMPORTANT: THIS IS FOR A FRESH INSTALL OF VANILLA ARCH HYPRLAND. DO NOT ATTEMPT THIS ON CACHY OR THE LIKE. 
 
 
-This is vibe coded, so i'm not entirely sure if she works or not yet. It's mainly for a friend of mine, so once he tests, i'll update as needed. 
+This is vibe coded, so far, everything is working. More testing will be done - use at your own risk. 
 
 The bar comes from Noctalia, it's amazing! All credit goes to them - https://github.com/noctalia-dev/noctalia-shell
 
