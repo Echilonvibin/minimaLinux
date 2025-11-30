@@ -11,7 +11,7 @@
         "type": "kitty",
 
         // !!! IMPORTANT: Replace this placeholder path with the actual path to your picture.
-        "source": "/home/echilon/Pictures/Terminal Stuff/ados2.png",
+        //"source": "YOUR IMAGE PATH HERE THEN UNCOMMENT",
 
         // Image display settings
         "height": 20,

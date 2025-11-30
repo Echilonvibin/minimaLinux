@@ -16,6 +16,7 @@ REQUIRED_PACKAGES=(
 
 # Packages required from the AUR (using yay)
 AUR_PACKAGES=(
+    noctalia-shell-git
     missioncenter yt-dlp warehouse
     linux-wallpaperengine-git upscaler video-downloader
 )
