@@ -1,93 +1,114 @@
 #!/bin/bash
 
-# --- Configuration ---
-# CRITICAL: This MUST match the configuration in install-dots.sh
+# --- Configuration (Must match install.sh) ---
 REPO_NAME="echilon-dotfiles"
-INSTALL_DIR="$HOME/Source/$REPO_NAME" # Where the repo was cloned
+INSTALL_DIR="$HOME/Source/$REPO_NAME"
 CONFIG_DIR="$HOME/.config"
+LOCAL_SHARE_DIR="$HOME/.local/share"
 
-# List of configuration directories/files linked by install.sh
+# List of configuration files/directories that were installed into ~/.config
 CONFIG_TARGETS=(
     "hypr"
     "rofi"
     "kitty"
     "fish"
-    "starship"
+    "starship.toml"
     "fastfetch"
+)
+
+# List of theming files/folders that were installed into ~/.local/share/themes
+THEME_TARGETS=(
+    "themes"
+)
+
+# List of icon files/folders that were installed into ~/.local/share/icons
+ICON_TARGETS=(
+    "icons"
 )
 
 # --- Functions ---
 
-# Function to remove symbolic links and restore original files from backup
-remove_symlinks() {
-    echo "--- 1. RESTORING CONFIGURATION FILES ---"
+# Function to prompt the user for confirmation
+confirm_action() {
+    read -r -p "Are you sure you want to proceed with uninstallation? (y/N): " response
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            return 0
+            ;;
+        *)
+            echo "Uninstallation cancelled by user. Exiting."
+            exit 1
+            ;;
+    esac
+}
 
-    for target in "${CONFIG_TARGETS[@]}"; do
-        FULL_PATH="$CONFIG_DIR/$target"
+# Function to restore backups for a given directory set
+restore_backups() {
+    local targets=("${!1}") # Get array reference
+    local dest_dir="$2"
+    local config_type="$3"
 
-        # Check if the path is a symbolic link pointing to our installation directory
-        if [ -L "$FULL_PATH" ] && readlink "$FULL_PATH" | grep -q "$REPO_NAME"; then
-            echo "Found symlink for: $target"
-            # Remove the symlink
-            rm "$FULL_PATH"
+    echo -e "\n--- Restoring $config_type Backups in $dest_dir ---"
+    
+    for target in "${targets[@]}"; do
+        FULL_PATH="$dest_dir/$target"
+        
+        # 1. Check for and remove the currently deployed file/directory
+        if [ -d "$FULL_PATH" ] || [ -f "$FULL_PATH" ] || [ -L "$FULL_PATH" ]; then
+            echo "-> Deleting currently deployed: $FULL_PATH"
+            rm -rf "$FULL_PATH"
+        fi
 
-            # --- Restoration ---
-            # Search for the latest dated backup (e.g., fastfetch.bak.20251130...)
-            # We use tail -n 1 to ensure we pick the MOST RECENT backup if multiple exist
-            BACKUP_PATH=$(ls -d "$CONFIG_DIR/$target.bak."* 2>/dev/null | tail -n 1)
+        # 2. Check for the backup file
+        BACKUP_FILE=$(find "$dest_dir" -maxdepth 1 -type f -name "$target.bak.*" -o -name "$target.bak.*" -type d | sort -r | head -n 1)
 
-            if [ -n "$BACKUP_PATH" ]; then
-                echo "-> Restoring backup: $(basename "$BACKUP_PATH")"
-                # Move the backup back to the original config name
-                mv "$BACKUP_PATH" "$FULL_PATH"
-            else
-                echo "-> No backup found for $target. Leaving directory/file removed."
-            fi
+        if [ -n "$BACKUP_FILE" ]; then
+            # Found a backup, restore it
+            echo "-> Restoring backup: $(basename "$BACKUP_FILE") to $target"
+            mv "$BACKUP_FILE" "$FULL_PATH"
         else
-            echo "Skipping $target: Not a symlink from this repository or path not found."
+            echo "-> No backup found for $target. Clean removal completed."
         fi
     done
-
-    echo "Symbolic links removed and backups restored (if available)."
 }
-
-# Function to delete the dotfiles directory
-delete_dotfiles() {
-    echo "--- 2. DELETING CLONED REPOSITORY ---"
-    echo "Deleting cloned dotfiles directory: $INSTALL_DIR"
-    if [ -d "$INSTALL_DIR" ]; then
-        rm -rf "$INSTALL_DIR"
-        echo "Successfully deleted $INSTALL_DIR."
-    else
-        echo "Dotfiles directory not found at $INSTALL_DIR. Skipping."
-    fi
-}
-
 
 # --- Main Execution ---
 
-echo "Starting Hyprland Dotfiles Uninstallation..."
-echo "============================================"
+echo "======================================================"
+echo " Starting Hyprland Dotfiles Uninstallation (Reverse Operation)"
+echo "======================================================"
 
-# 1. Remove the symbolic links and restore backups
-remove_symlinks
+confirm_action
 
-echo "============================================"
+# 1. Restore .config backups
+restore_backups CONFIG_TARGETS[@] "$CONFIG_DIR" "Configuration"
 
-# 2. Delete the cloned dotfiles repository
-delete_dotfiles
+# 2. Restore .local/share/themes backups (using the array name as reference)
+restore_backups THEME_TARGETS[@] "$LOCAL_SHARE_DIR/themes" "Theme"
 
-echo "============================================"
+# 3. Restore .local/share/icons backups (using the array name as reference)
+restore_backups ICON_TARGETS[@] "$LOCAL_SHARE_DIR/icons" "Icon"
+
+# 4. Remove the cloned repository
+echo -e "\n--- Removing Cloned Repository ---"
+if [ -d "$INSTALL_DIR" ]; then
+    echo "-> Deleting repository folder: $INSTALL_DIR"
+    rm -rf "$INSTALL_DIR"
+else
+    echo "-> Repository folder not found at $INSTALL_DIR. Skipping removal."
+fi
+
+echo "======================================================"
 echo "Uninstallation Complete!"
+echo "Your original configuration files have been restored from backups."
+echo "======================================================"
+echo "⚠️ NEXT STEPS: MANUAL PACKAGE REMOVAL ⚠️"
+echo "The installed software packages (Hyprland, Kitty, Rofi, etc.) were NOT automatically removed."
+echo "If you wish to remove them, please use the following commands:"
 echo ""
-echo "--- PACKAGE REMOVAL INSTRUCTIONS ---"
-echo "NOTE: This script DOES NOT remove software packages (Hyprland, Kitty, Fish, etc.)"
-echo "If you wish to remove the packages installed by the script, please run the following commands manually:"
+echo "--- Official/Common Packages (Requires sudo) ---"
+echo "sudo pacman -Rns hyprland rofi nemo vivaldi code kvantum qt5-base qt6-base gtk3 grim slurp wayland-protocols wget imagemagick fish kitty fastfetch"
 echo ""
-echo "PACMAN PACKAGES:"
-echo "sudo pacman -Rns hyprland hyprctl rofi nemo vivaldi code grim slurp wayland-protocols wget imagemagick fish starship kitty fastfetch"
-echo ""
-echo "AUR PACKAGES (requires yay):"
-echo "yay -Rns missioncenter yt-dlp warehouse linux-wallpaperengine-git upscaler video-downloader"
-echo ""
-echo "You should now log out and select your previous desktop environment."
+echo "--- AUR Packages (Requires yay) ---"
+echo "yay -Rns noctalia-shell-git missioncenter yt-dlp warehouse linux-wallpaperengine-git upscaler video-downloader"
+echo "======================================================"
