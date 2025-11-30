@@ -1,0 +1,153 @@
+// This configuration merges the module content and red color scheme
+// from the previous version with the structural brackets and advanced
+// image settings from the first provided JSON.
+
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+    // --- LOGO CONFIGURATION (Using kitty for advanced image display) ---
+    "logo": {
+        // Changed to "kitty" for more robust image rendering (especially in tmux/kitty terminal)
+        "type": "kitty",
+
+        // !!! IMPORTANT: Replace this placeholder path with the actual path to your picture.
+        "source": "/home/echilon/Pictures/Terminal Stuff/ados2.png",
+
+        // Image display settings
+        "height": 20,
+        "width": 35,
+        "position": "left",
+        "padding": {
+            "top": 5,
+            "right": 4
+        }
+    },
+
+    "display": {
+        "separator": " "
+    },
+
+    "modules": [
+        // --- COMPUTER SECTION (Bracketed) ---
+        {
+            "type": "custom",
+            "format": "\u001b[1;31m┌───────────── * Computer * ──────────────┐\u001b[0m"
+        },
+        {
+            "type": "title",
+            // Key updated to use bracket style
+            "key": "\u001b[1;31m│ ├󰇄 Host:\u001b[0m",
+            "format": "\u001b[0m{user-name}@{host-name}"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[1;31m└────────────────────────────────────────┘\u001b[0m"
+        },
+        {
+            "type": "custom",
+            "format": ""
+        },
+
+        // --- SYSTEMS SECTION (Bracketed) ---
+        {
+            "type": "custom",
+            "format": "\u001b[1;31m┌───────────── * Systems * ──────────────┐\u001b[0m"
+        },
+        {
+            "type": "os",
+            "key": "\u001b[1;31m│ ├󰣇 OS:\u001b[0m" // Uses red color + bracket prefix
+        },
+        {
+            "type": "kernel",
+            "key": "\u001b[1;31m│ ├󰌽 Kernel:\u001b[0m"
+        },
+        {
+            "type": "uptime",
+            "key": "\u001b[1;31m│ ├󰥔 Uptime:\u001b[0m"
+        },
+        {
+            "type": "packages",
+            "key": "\u001b[1;31m│ ├󰏖 Packages:\u001b[0m"
+        },
+        {
+            "type": "shell",
+            "key": "\u001b[1;31m└ └ Shell:\u001b[0m" // Last item in section uses L-bracket
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[1;31m└────────────────────────────────────────┘\u001b[0m"
+        },
+
+        {
+            "type": "custom",
+            "format": ""
+        },
+
+        // --- DISPLAYS SECTION (Bracketed) ---
+        {
+            "type": "custom",
+            "format": "\u001b[1;31m┌──────────── * Displays * ──────────────┐\u001b[0m"
+        },
+        {
+            "type": "display",
+            "key": "\u001b[1;31m│ ├󰍹 Resolution:\u001b[0m",
+            "format": "{1}x{2} @ {3}Hz"
+        },
+        {
+            "type": "de",
+            "key": "\u001b[1;31m│ ├󰧨 DE:\u001b[0m"
+        },
+        {
+            "type": "wm",
+            "key": "\u001b[1;31m│ ├ WM:\u001b[0m"
+        },
+        {
+            "type": "terminal",
+            "key": "\u001b[1;31m│ ├ Terminal:\u001b[0m"
+        },
+        {
+            "type": "terminalfont",
+            "key": "\u001b[1;31m└ └ Font:\u001b[0m"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[1;31m└────────────────────────────────────────┘\u001b[0m"
+        },
+
+        {
+            "type": "custom",
+            "format": ""
+        },
+
+        // --- HARDWARE SECTION (Bracketed) ---
+        {
+            "type": "custom",
+            "format": "\u001b[1;31m┌──────────── * Hardware * ──────────────┐\u001b[0m"
+        },
+        {
+            "type": "host",
+            "key": "\u001b[1;31m│ ├󰌢 Host:\u001b[0m",
+            "format": "{2}"
+        },
+        {
+            "type": "cpu",
+            "key": "\u001b[1;31m│ ├󰻠 CPU:\u001b[0m"
+        },
+        {
+            "type": "gpu",
+            "key": "\u001b[1;31m│ ├󰢮 GPU:\u001b[0m"
+        },
+        {
+            "type": "memory",
+            "key": "\u001b[1;31m│ ├󰍛 Memory:\u001b[0m"
+        },
+        {
+            "type": "disk",
+            "key": "\u001b[1;31m└ └󰋊 Disk:\u001b[0m"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[1;31m└────────────────────────────────────────┘\u001b[0m"
+        }
+    ]
+}
