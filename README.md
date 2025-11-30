@@ -17,7 +17,7 @@ File/Section
 
 hypr/hyprland.conf
 
-Monitors: The current config uses monitor=,preferred,auto,1 for automatic detection. If you need specific resolutions, refresh rates, or scaling (e.g., HiDPI), you must uncomment and modify the manual monitor= examples.
+Monitors: The current config uses monitor=,preferred,auto,1 for automatic detection. If you need specific resolutions, refresh rates, or scaling (e.g., HiDPI), you must uncomment and modify the manual monitor= examples. You could also use nwg-displays to configure it how you want, and then export it into the hyprland.conf file. 
 
 hypr/keybindings.conf
 
