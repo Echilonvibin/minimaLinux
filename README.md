@@ -82,7 +82,7 @@ Step 1: Download the Installer Script
 Open your terminal and use wget to download the installation script directly to your home directory:
 
 ```
-git clone https://github.com/Gamma195/echilon-dotfiles.git
+git clone https://github.com/Echilonvibin/echilon-dotfiles.git
 
 ```
 
