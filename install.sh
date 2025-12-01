@@ -87,13 +87,13 @@ deploy_configs() {
             mv "$TARGET_PATH" "$TARGET_PATH.bak.$TIMESTAMP"
         fi
         
-        # Create symbolic link
-        echo "Linking $TARGET_NAME configuration: $SOURCE_PATH -> $TARGET_PATH"
-        ln -s "$SOURCE_PATH" "$TARGET_PATH"
+        # Create symbolic link -> CHANGED TO COPY (cp -a)
+        echo "Copying $TARGET_NAME configuration: $SOURCE_PATH -> $TARGET_PATH"
+        cp -a "$SOURCE_PATH" "$TARGET_PATH"
         
-        # Check 3: Check if the linking operation was successful
+        # Check 3: Check if the copy operation was successful
         if [ $? -ne 0 ]; then
-            echo "NON-FATAL ERROR: Failed to create symbolic link for $TARGET_NAME."
+            echo "NON-FATAL ERROR: Failed to copy configuration files for $TARGET_NAME."
             echo "Possible causes: Incorrect permissions on $CONFIG_DIR or target path not writeable. Skipping..."
         fi
     done
@@ -102,21 +102,20 @@ deploy_configs() {
 # Set executable permissions for scripts
 set_permissions() {
     # The source is linked to $CONFIG_DIR/hypr. The scripts path inside that link is 'Scripts'
-    # We must ensure that the link was created successfully before attempting to access it.
+    # Since we are copying now, $CONFIG_DIR/hypr/ is a real directory.
     
     # NOTE: The path for the scripts is now relative to the *target* location ($CONFIG_DIR)
     SCRIPTS_PATH="$CONFIG_DIR/hypr/Scripts"
     
     # Check if the scripts directory exists before trying to run chmod
-    # This check will only pass IF the 'hypr' link was successfully created in deploy_configs
+    # This check will only pass IF the 'hypr' directory was successfully copied in deploy_configs
     if [ -d "$SCRIPTS_PATH" ]; then
         echo "Setting execution permissions for scripts..."
         # Use find to be robust against hidden files and ensure we only target files
-        # The -L option in find is generally not needed here as we are resolving the link via -d check above.
         find "$SCRIPTS_PATH" -type f -exec chmod +x {} \;
     else
         echo "Warning: Hyprland scripts directory '$SCRIPTS_PATH' not found."
-        echo "Ensure the 'hypr' link was successfully created and the 'Scripts' folder exists inside your source 'hypr' directory."
+        echo "Ensure the 'hypr' directory was successfully copied and the 'Scripts' folder exists inside your new 'hypr' directory."
     fi
 }
 
@@ -142,5 +141,5 @@ echo "--------------------------------------------------------"
 echo "Next Steps (Step 3):"
 echo "1. Review customization points in README.md."
 echo "2. Reboot your system."
-echo "3. Select the Hyprland session at your login manager."
-echo "--------------------------------------------------------"
+"3. Select the Hyprland session at your login manager.
+--------------------------------------------------------"
