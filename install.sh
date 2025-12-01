@@ -41,7 +41,8 @@ install_yay() {
     if ! command -v yay &> /dev/null; then
         echo "yay not found. Installing yay..."
         sudo pacman -S --needed git base-devel
-        git clone [https://aur.archlinux.org/yay.git](https://aur.archlinux.org/yay.git) /tmp/yay
+        # FIX: Removed Markdown link syntax which caused a Bash syntax error
+        git clone https://aur.archlinux.org/yay.git /tmp/yay
         (cd /tmp/yay && makepkg -si --noconfirm)
         rm -rf /tmp/yay
     else
