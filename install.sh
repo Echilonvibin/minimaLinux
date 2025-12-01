@@ -79,7 +79,8 @@ deploy_configs() {
 
 # Set executable permissions for scripts
 set_permissions() {
-    SCRIPTS_PATH="$CONFIG_DIR/hypr/scripts"
+    # CORRECTED: Changed 'scripts' to 'Scripts' to match user's case-sensitive directory name
+    SCRIPTS_PATH="$CONFIG_DIR/hypr/Scripts"
     
     # Check if the scripts directory exists before trying to run chmod
     if [ -d "$SCRIPTS_PATH" ]; then
@@ -88,7 +89,7 @@ set_permissions() {
         find "$SCRIPTS_PATH" -type f -exec chmod +x {} \;
     else
         echo "Warning: Hyprland scripts directory '$SCRIPTS_PATH' not found."
-        echo "Ensure the 'hypr/scripts' folder exists in your dotfiles repository."
+        echo "Ensure the 'hypr/Scripts' folder exists in your dotfiles repository."
     fi
 }
 
