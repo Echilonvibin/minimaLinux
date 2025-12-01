@@ -53,33 +53,53 @@ install_yay() {
 deploy_configs() {
     echo "Deploying configuration files..."
     
-    # Check and create necessary backup directories
-    for component in hypr kitty rofi fastfetch fish; do
-        SOURCE_PATH="$REPO_DIR/$component"
-        TARGET_PATH="$CONFIG_DIR/$component"
+    # List of configuration directories in the repository (Source) and their target names (Target)
+    # ASSUMPTION: Source directories in the repository are capitalized (e.g., "Hypr")
+    #             Target directories in ~/.config must be lowercase (e.g., "hypr")
+    
+    declare -A component_map=(
+        ["Hypr"]="hypr"
+        ["Kitty"]="kitty"
+        ["Rofi"]="rofi"
+        ["Fastfetch"]="fastfetch"
+        ["Fish"]="fish"
+    )
+
+    for SOURCE_NAME in "${!component_map[@]}"; do
+        TARGET_NAME="${component_map[$SOURCE_NAME]}"
         
-        # Ensure the source directory (in the repo) exists before attempting to link
+        SOURCE_PATH="$REPO_DIR/$SOURCE_NAME"
+        TARGET_PATH="$CONFIG_DIR/$TARGET_NAME"
+        
+        # Check 1: Ensure the source directory (in the repo) exists
         if [ ! -d "$SOURCE_PATH" ]; then
-            echo "Error: Source configuration directory '$component' not found in the repository."
-            echo "Please ensure the path '$SOURCE_PATH' is correct."
+            echo "Error: Source configuration directory '$SOURCE_NAME' not found in the repository at '$REPO_DIR'."
+            echo "Please ensure the folder '$SOURCE_NAME' exists in your dotfiles repository."
             continue # Skip deployment for this component
         fi
 
+        # Check 2: Backup existing target directory if it exists
         if [ -d "$TARGET_PATH" ] || [ -L "$TARGET_PATH" ]; then
             TIMESTAMP=$(date +%Y%m%d%H%M%S)
-            echo "Existing $component config found. Creating backup: $TARGET_PATH.bak.$TIMESTAMP"
+            echo "Existing $TARGET_NAME config found. Creating backup: $TARGET_PATH.bak.$TIMESTAMP"
             mv "$TARGET_PATH" "$TARGET_PATH.bak.$TIMESTAMP"
         fi
         
         # Create symbolic link
-        echo "Linking $component configuration..."
+        echo "Linking $TARGET_NAME configuration: $SOURCE_PATH -> $TARGET_PATH"
         ln -s "$SOURCE_PATH" "$TARGET_PATH"
+        
+        # Check 3: Check if the linking operation was successful
+        if [ $? -ne 0 ]; then
+            echo "NON-FATAL ERROR: Failed to create symbolic link for $TARGET_NAME."
+            echo "Possible causes: Incorrect permissions on $CONFIG_DIR or target path not writeable. Skipping..."
+        fi
     done
 }
 
 # Set executable permissions for scripts
 set_permissions() {
-    # CORRECTED: Changed 'scripts' to 'Scripts' to match user's case-sensitive directory name
+    # CORRECTED: Uses capitalized 'Scripts'
     SCRIPTS_PATH="$CONFIG_DIR/hypr/Scripts"
     
     # Check if the scripts directory exists before trying to run chmod
