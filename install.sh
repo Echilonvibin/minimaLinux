@@ -54,18 +54,29 @@ install_yay() {
 deploy_configs() {
     echo "Deploying configuration files..."
     
+    # NEW FIX: Set the root of the configuration files within the repository
+    CONFIG_SOURCE_ROOT="$REPO_DIR/.config"
+    
+    # Check if the .config directory actually exists in the repository
+    if [ ! -d "$CONFIG_SOURCE_ROOT" ]; then
+        echo "FATAL ERROR: Could not find the '.config' directory inside your repository at '$REPO_DIR'."
+        echo "Please ensure all configuration folders (hypr, kitty, etc.) are placed inside a '.config' directory."
+        return # Stop execution of this function
+    fi
+
     # Iterate over the configuration directory names (all lowercase in the repo)
     for component in hypr kitty rofi fastfetch fish; do
         SOURCE_NAME="$component" 
         TARGET_NAME="$component" 
         
-        SOURCE_PATH="$REPO_DIR/$SOURCE_NAME"
+        # CORRECTED SOURCE PATH: now points to /repo/.config/component
+        SOURCE_PATH="$CONFIG_SOURCE_ROOT/$SOURCE_NAME"
         TARGET_PATH="$CONFIG_DIR/$TARGET_NAME"
         
-        # Check 1: Ensure the source directory (in the repo) exists
+        # Check 1: Ensure the source directory (in the repo's .config folder) exists
         if [ ! -d "$SOURCE_PATH" ]; then
-            echo "Error: Source configuration directory '$SOURCE_NAME' not found in the repository at '$REPO_DIR'."
-            echo "Please ensure the folder '$SOURCE_NAME' exists directly in your dotfiles repository."
+            echo "Error: Source configuration directory '$SOURCE_NAME' not found at '$SOURCE_PATH'."
+            echo "Please ensure the folder '$SOURCE_NAME' exists inside your .config subdirectory."
             continue # Skip deployment for this component
         fi
 
@@ -90,17 +101,22 @@ deploy_configs() {
 
 # Set executable permissions for scripts
 set_permissions() {
-    # Uses capitalized 'Scripts' as confirmed by your directory structure
+    # The source is linked to $CONFIG_DIR/hypr. The scripts path inside that link is 'Scripts'
+    # We must ensure that the link was created successfully before attempting to access it.
+    
+    # NOTE: The path for the scripts is now relative to the *target* location ($CONFIG_DIR)
     SCRIPTS_PATH="$CONFIG_DIR/hypr/Scripts"
     
     # Check if the scripts directory exists before trying to run chmod
+    # This check will only pass IF the 'hypr' link was successfully created in deploy_configs
     if [ -d "$SCRIPTS_PATH" ]; then
         echo "Setting execution permissions for scripts..."
         # Use find to be robust against hidden files and ensure we only target files
+        # The -L option in find is generally not needed here as we are resolving the link via -d check above.
         find "$SCRIPTS_PATH" -type f -exec chmod +x {} \;
     else
         echo "Warning: Hyprland scripts directory '$SCRIPTS_PATH' not found."
-        echo "Ensure the 'hypr/Scripts' folder exists in your dotfiles repository."
+        echo "Ensure the 'hypr' link was successfully created and the 'Scripts' folder exists inside your source 'hypr' directory."
     fi
 }
 
