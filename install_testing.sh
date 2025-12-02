@@ -27,8 +27,10 @@ PACKAGES=(
     upscayl-bin    # Upscaler for images on the fly
     video-downloader # Download videos on your system, avoid sketchy websites! Yipee!
     gnome-calculator # Math n stuff...
-
-
+    loupe          # image viewer
+    gcolor3        # color picker
+    protonplus     # proton manager
+    
     
     # Bar from noctalia 
     noctalia-shell-git
