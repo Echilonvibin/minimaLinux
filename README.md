@@ -1,189 +1,101 @@
 <p align="center">
-
-<!-- Placeholders for GitHub Shields. Update the source URLs after your first push! -->
-
-<img src="https://img.shields.io/github/last-commit/Echilonvibin/echilon-dotfiles" alt="Last Commit">
-
-<img src="https://img.shields.io/github/commit-activity/w/Echilonvibin/echilon-dotfiles" alt="Commit Activity">
-
+  <img src="https://img.shields.io/github/last-commit/Echilonvibin/echilon-dotfiles" alt="Last Commit">
+  <img src="https://img.shields.io/github/commit-activity/w/Echilonvibin/echilon-dotfiles" alt="Commit Activity">
+  <img src="https://img.shields.io/github/license/Echilonvibin/echilon-dotfiles" alt="License">
 </p>
-
-
 
 # echilon-dotfiles
 
-
-
-A collection of custom configuration files (dotfiles) for the **Hyprland** Wayland compositor, managed by **Echilon & Tonekneeo**.
-
-
+A curated collection of custom configuration files (dotfiles) for the **Hyprland** Wayland compositor, maintained by **Echilon & Tonekneeo**.
 
 ---
 
+## ⚠️ Important Warnings & Disclaimer
 
+### Fresh Install Requirement
 
-## ⚠️ Important Warnings
+**This configuration is tailored for a FRESH INSTALL of VANILLA ARCH LINUX with Hyprland.** We strongly advise against attempting this installation on derivative distributions (such as CachyOS, Manjaro, etc.) as package and configuration conflicts are highly likely.
 
+### Development Status
 
-
-### Fresh Install & Liability
-
-
-
-**THIS IS FOR A FRESH INSTALL OF VANILLA ARCH HYPRLAND.** Do not attempt this on derivative distributions (like CachyOS or similar).
-
-
-
-This configuration is currently "vibe coded" and is in active development. While everything is working so far, **more testing will be done — use at your own risk.**
-
-
+This configuration is in **active development** and is currently being "vibe coded." While all components are functional during testing, we advise using it **at your own risk**. More rigorous testing is scheduled.
 
 ### Credits
 
+The primary application bar (`noctalia-shell-git`) is based on the exceptional work by **Noctalia**. All credit for the bar's design and functionality goes to them:
 
-
-The application bar (`noctalia-shell-git`) is based on the amazing work by Noctalia. All credit for the bar goes to them:
-
-<https://github.com/noctalia-dev/noctalia-shell>
-
-
+> [**noctalia-dev/noctalia-shell**](https://github.com/noctalia-dev/noctalia-shell)
 
 ---
-
-
-
-## ⚙️ Customization Required
-
-
-
-These dotfiles are provided as a *template*. You **must** review and customize several files to match your system paths, desired aesthetics, and hardware setup.
-
-
-
-### Key Customization Points:
-
-
-
-| File/Section | Customization Needed | Notes |
-
-| :--- | :--- | :--- |
-
-| **`hypr/hyprland.conf`** | Monitor setup (resolution, scaling, refresh rate). | Current config uses `monitor=,preferred,auto,1`. You can also use `nwg-displays` to configure and export settings. |
-
-| **`hypr/keybindings.conf`** | Script execution paths. | Ensure the paths to executable scripts (like `keyhints` or other utility scripts) are correct. |
-
-| **Wallpaper Engine** | Custom wallpaper assets and workshop path. | View the [linux-wallpaperengine GitHub](https://github.com/Almamu/linux-wallpaperengine) for details. **🚨 I WILL NOT PROVIDE SUPPORT FOR WALLPAPER ENGINE 🚨** |
-
-| **Theming** | Color schemes and font settings. | Default theme settings are minimal. Add your preferred settings here. |
-
-| **`fastfetch/config.jsonc`** | Theming/Images. | Update for specific image or ASCII art display. |
-
-
-
----
-
-
 
 ## 📦 What's Included?
 
-
-
-This repository provides configurations for a complete, customized Hyprland experience:
-
-
+This repository provides comprehensive configurations for a complete, customized Hyprland desktop environment.
 
 | Component | Description |
-
 | :--- | :--- |
-
-| **`hypr`** | Main Hyprland configuration, keybinds, and workspace setup. **(Requires customization)** |
-
-| **`kitty`** | Configuration for the primary terminal emulator. |
-
-| **`fish`** | Configuration for the Fish shell and Starship prompt. |
-
-| **`rofi`** | Custom themes and scripts for the application launcher. |
-
-| **`fastfetch`** | Configuration for displaying system information. |
-
-| **`install.sh`** | Automates package installation and configuration deployment. |
-
-| **`uninstall.sh`** | Reverts changes and restores previous configurations (if a backup exists). |
-
-
+| **`hypr`** | Main Hyprland configuration, including keybinds, window rules, and workspace setup. **(Requires customization)** |
+| **`kitty`** | Configuration for the primary GPU-accelerated terminal emulator. |
+| **`fish`** | Configuration for the Fish shell, including custom functions and the Starship prompt. |
+| **`rofi`** | Custom themes and scripts for the application launcher and utility menus. |
+| **`fastfetch`** | Configuration for displaying system information with custom images/ASCII art. |
+| **`install.sh`** | An automated script for package installation and configuration deployment. |
+| **`uninstall.sh`** | A script to revert changes and restore previous configurations (if a backup exists). |
 
 ---
 
+## ⚙️ Customization Required
 
+These dotfiles are provided strictly as a **template**. You **must** review and customize several files to align with your specific hardware, desired aesthetics, and system paths.
 
-## 🚀 Installation
+| File/Section | Customization Needed | Notes |
+| :--- | :--- | :--- |
+| **`hypr/hyprland.conf`** | Monitor setup (resolution, scaling, refresh rate). | The current default is `monitor=,preferred,auto,1`. You may use `nwg-displays` to help configure and export precise settings. |
+| **`hypr/keybindings.conf`** | Script execution paths. | **Crucial:** Ensure the absolute paths to executable scripts (e.g., `keyhints`, custom utility scripts) are correct for your system. |
+| **Wallpaper Engine** | Custom wallpaper assets and workshop path. | Refer to the [linux-wallpaperengine GitHub](https://github.com/Almamu/linux-wallpaperengine) for details. **🚨 NO SUPPORT WILL BE PROVIDED FOR WALLPAPER ENGINE 🚨** |
+| **Theming** | Color schemes, fonts, and global aesthetic settings. | The default theme is minimal. Customize these files to add your preferred color palette and font stack. |
+| **`fastfetch/config.jsonc`** | Theming/Images. | Update the configuration for your specific image or ASCII art display. |
 
+---
 
+## 🚀 Installation Guide
 
 ### Prerequisites
 
-
-
 You must be running an **Arch-based Linux distribution** and have basic development tools installed (`git` is required for cloning).
-
-
 
 ### Step 1: Clone the Repository
 
-
-
-Open your terminal and use `git clone` to download the entire repository:
-
-
+Open your terminal and clone the repository using `git`:
 
 ```bash
-
 git clone https://github.com/Echilonvibin/echilon-dotfiles.git
-
 ```
 
-
-
-```
-
+### Step 2: Run the Installation Script
+Navigate into the cloned directory and execute the automated install.sh script:
 cd ./echilon-dotfiles
 
-```
-
-
-
-```
-
+```bash
 ./install.sh
-
 ```
+Note: The install.sh script handles package installation via your package manager and deploys the dotfiles, creating a backup of any existing configuration files it overwrites.
 
-
-
-
----
-
-## 🗑️ Uninstallation
-
-If you need to revert the changes and restore your system to its previous state (using the backup files created during installation), follow these steps.
+# 🗑️ Uninstallation
+If you need to revert the changes and restore your system to its previous state using the created backups, please follow these steps.
 
 ### Step 1: Run the Uninstallation Script
-
-Navigate to the repository directory if you are not already there, grant execution permissions, and execute the uninstallation script:
+Navigate to the repository directory (if not already there) and execute the uninstall.sh script:
 
 ```bash
-chmod +x uninstall.sh
 ./uninstall.sh
 ```
 
-## Manually Remove Software (Optional)
-
-If you wish to completely remove the installed software, you must run a separate command using your package manager.
+### Step 2: Manually Remove Software (Optional)
+The uninstallation script restores configurations but does not remove packages. If you wish to completely remove the installed software, you must run a separate command using your package manager (e.g., yay, pacman).
 
 # Example command to remove core packages (adjust the list as needed)
 ```
 yay -R nautilus noctalia-shell-git upscayl-bin video-downloader gnome-calculator loupe gcolor3 protonplus mission-center
 ```
----
-
 
