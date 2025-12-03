@@ -22,6 +22,10 @@ PACKAGES=(
     nautilus           # File Manager  
     bluez          # Bluetooth utlities
     blueman        # Bluetooth utlities 
+    satty          # Screenshot annotation tool
+    grim           # Screenshot utility for wayland
+    slurp          # Screenshot selector for region
+    hyprshot       # Screenshot selector region - this is a standalone app
 
 )
 
@@ -54,6 +58,19 @@ install_yay() {
         rm -rf /tmp/yay
     else
         echo "yay is already installed."
+    fi
+}
+
+# Function to handle optional package installation (MOVED TO FUNCTIONS BLOCK)
+install_optional_packages() {
+    echo -e "\n--- Optional Packages Installation ---"
+    read -r -p "Do you want to install the optional packages? (y/N): " response
+    
+    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+        echo "Installing optional packages via yay..."
+        yay -Syu --noconfirm "${OPTIONALPKG[@]}"
+    else
+        echo "Skipping optional package installation."
     fi
 }
 
@@ -141,18 +158,8 @@ echo "2..."
 echo "1!"
 yay -Syu --noconfirm "${PACKAGES[@]}"
 
-# 3. Function to handle optional package installation
-install_optional_packages() {
-    echo -e "\n--- Optional Packages Installation ---"
-    read -r -p "Do you want to install the optional packages? (y/N): " response
-    
-    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-        echo "Installing optional packages via yay..."
-        yay -Syu --noconfirm "${OPTIONALPKG[@]}"
-    else
-        echo "Skipping optional package installation."
-    fi
-}
+# 3. Optional install packages (CALL ADDED HERE)
+install_optional_packages
 
 # 4. Deploy Configurations
 deploy_configs
