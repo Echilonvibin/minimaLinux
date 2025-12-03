@@ -41,6 +41,7 @@ OPTIONALPKG=(
     gcolor3        # color picker
     protonplus     # proton manager
     mission-center #Task Manager, Sleak
+    linux-wallpaperengine-git #Wallpaper Engine
     
 )
 
