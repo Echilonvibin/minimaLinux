@@ -176,7 +176,7 @@ chmod +x uninstall.sh
 ./uninstall.sh
 ```
 
-#Manually Remove Software (Optional)
+## Manually Remove Software (Optional)
 
 If you wish to completely remove the installed software, you must run a separate command using your package manager.
 
