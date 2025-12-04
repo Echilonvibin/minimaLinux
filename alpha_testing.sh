@@ -15,6 +15,14 @@ if [ ! -f /etc/pacman.conf ]; then
 fi
 
 # --- Configuration ---
+# Get the actual user running the script (not root)
+if [ -n "$SUDO_USER" ]; then
+    ACTUAL_USER="$SUDO_USER"
+else
+    ACTUAL_USER=$(who | awk '{print $1}' | head -n 1)
+fi
+ACTUAL_USER_HOME=$(eval echo ~$ACTUAL_USER)
+
 # Define the list of packages to install using pacman
 PACKAGES=(
     # Core Components
@@ -65,14 +73,14 @@ PACKAGES=(
 )
 
 OPTIONALPKG=(
-    upscayl-bin               # Upscaler for images on the fly
+    upscayl-desktop-git               # Upscaler for images on the fly
     video-downloader          # Download videos on your system, avoid sketchy websites! Yipee!
     mission-center            # Task Manager, Sleek
     protonplus                # Proton manager
 )
 
 REPO_DIR=$(pwd)
-CONFIG_DIR="$HOME/.config"
+CONFIG_DIR="$ACTUAL_USER_HOME/.config"
 
 # Validate repo directory
 if [ ! -d "$REPO_DIR/.config" ]; then
@@ -211,6 +219,13 @@ setup_chaotic_aur() {
     printf "${GREEN}  Chaotic-AUR repository setup completed successfully!${ALL_OFF}\n"
     printf "${GREEN}  Repository is now positioned at the end of pacman.conf${ALL_OFF}\n"
     echo ""
+    
+    msg "Refreshing pacman mirrors..."
+    pacman -Syy
+    
+    if [ $? -ne 0 ]; then
+        echo "Warning: Failed to refresh pacman mirrors."
+    fi
 }
 
 # --- Main Installation Functions ---
@@ -272,6 +287,9 @@ deploy_configs() {
         if [ $? -ne 0 ]; then
             echo "NON-FATAL ERROR: Failed to copy configuration files for $component."
         fi
+        
+        # Fix ownership since we're running as root
+        chown -R "$ACTUAL_USER:$ACTUAL_USER" "$TARGET_PATH"
     done
 }
 
@@ -280,7 +298,7 @@ deploy_local_share() {
     echo "Deploying local share files..."
     
     LOCAL_SOURCE_ROOT="$REPO_DIR/.local/share"
-    LOCAL_TARGET_ROOT="$HOME/.local/share"
+    LOCAL_TARGET_ROOT="$ACTUAL_USER_HOME/.local/share"
 
     if [ ! -d "$LOCAL_SOURCE_ROOT" ]; then
         echo "No .local/share directory found in repo, skipping..."
@@ -295,6 +313,9 @@ deploy_local_share() {
         if [ $? -ne 0 ]; then
             echo "NON-FATAL ERROR: Failed to copy files from .local/share."
         fi
+        
+        # Fix ownership since we're running as root
+        chown -R "$ACTUAL_USER:$ACTUAL_USER" "$LOCAL_TARGET_ROOT"
     else
         echo "Warning: .local/share directory is empty, skipping copy."
     fi
@@ -302,7 +323,7 @@ deploy_local_share() {
 
 # Set executable permissions for scripts
 set_permissions() {
-    SCRIPTS_PATH="$CONFIG_DIR/hypr/Scripts"
+    SCRIPTS_PATH="$ACTUAL_USER_HOME/.config/hypr/Scripts"
     
     if [ -d "$SCRIPTS_PATH" ]; then
         echo "Setting execution permissions for scripts..."
@@ -346,7 +367,7 @@ set_permissions
 
 # 6. Update user directories
 echo "Updating user directories..."
-xdg-user-dirs-update
+sudo -u "$ACTUAL_USER" xdg-user-dirs-update
 
 if [ $? -ne 0 ]; then
     echo "Warning: Failed to update user directories."
