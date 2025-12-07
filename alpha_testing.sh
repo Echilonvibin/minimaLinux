@@ -3,6 +3,25 @@
 export LC_MESSAGES=C
 export LANG=C
 
+# --- Pre-flight confirmation ---
+echo "This script will install custom dot-files for use on a fresh install of Hyprland (Arch Linux only). Use at your own risk."
+while true; do
+    read -r -p "Would you like to proceed? (y/n): " proceed
+    case "$proceed" in
+        y|Y|yes|YES)
+            echo "Great! Proceeding with installation..."
+            break
+            ;;
+        n|N|no|NO)
+            echo "Fair enough, Have a nice day."
+            exit 0
+            ;;
+        *)
+            echo "Please answer 'y' or 'n'."
+            ;;
+    esac
+done
+
 # Ensure running as root
 if [[ $EUID -ne 0 ]]; then
   echo "This script must be run as root." >&2
@@ -84,6 +103,15 @@ OPTIONALPKG=(
     mission-center            # Task Manager, Sleek
     protonplus                # Proton manager
     deadbeef                  # Modular Audio Player
+)
+
+# Descriptions for optional packages
+declare -A OPTIONALPKG_DESC=(
+    [upscayl-desktop-git]="Image upscaler (desktop GUI)"
+    [video-downloader]="Download videos locally from various sources"
+    [mission-center]="Sleek task manager / system monitor"
+    [protonplus]="Proton/Wine manager for gaming"
+    [deadbeef]="Modular audio player"
 )
 
 REPO_DIR=$(pwd)
@@ -252,7 +280,17 @@ remove_conflicting_packages() {
 # Function to handle optional package installation
 install_optional_packages() {
     echo -e "\n--- Optional Packages Installation ---"
-    read -r -p "Do you want to install the optional packages? (y/N): " response
+    echo "The following optional packages will be installed if you choose yes:"
+    for pkg in "${OPTIONALPKG[@]}"; do
+        desc="${OPTIONALPKG_DESC[$pkg]}"
+        if [ -n "$desc" ]; then
+            echo "  - $pkg: $desc"
+        else
+            echo "  - $pkg"
+        fi
+    done
+    echo ""
+    read -r -p "Do you want to install these optional packages? (y/N): " response
     
     if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
         echo "Installing optional packages via pacman..."
