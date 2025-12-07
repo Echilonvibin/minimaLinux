@@ -378,6 +378,37 @@ set_permissions() {
     fi
 }
 
+# Install Tela Circle icon theme (final optional step)
+install_tela_icons() {
+    echo -e "\n--- Optional: Tela Circle Icon Theme ---"
+    echo "The Tela Circle icon collection can be installed."
+    echo "Repo: https://github.com/vinceliuice/Tela-circle-icon-theme"
+    read -r -p "Do you want to install Tela Circle icons? (y/N): " response
+    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+        WORKDIR="/tmp/Tela-circle-icon-theme-$$"
+        mkdir -p "$WORKDIR"
+        echo "Cloning repository to $WORKDIR ..."
+        if ! git clone --depth=1 https://github.com/vinceliuice/Tela-circle-icon-theme.git "$WORKDIR/Tela-circle-icon-theme"; then
+            echo "ERROR: Failed to clone Tela Circle icon theme repository."
+            return 1
+        fi
+        cd "$WORKDIR/Tela-circle-icon-theme" || { echo "ERROR: Failed to enter repo directory."; return 1; }
+        ICON_TARGET_DIR="$ACTUAL_USER_HOME/.local/share/icons"
+        mkdir -p "$ICON_TARGET_DIR"
+        echo "Running installer to '$ICON_TARGET_DIR' ..."
+        # Run installer (script expects root for system-wide; we target user's icons dir)
+        if ./install.sh -a -c -d "$ICON_TARGET_DIR"; then
+            chown -R "$ACTUAL_USER:$ACTUAL_USER" "$ICON_TARGET_DIR"
+            echo "Tela Circle icons installed to $ICON_TARGET_DIR"
+        else
+            echo "ERROR: Tela Circle icon installation failed."
+            return 1
+        fi
+    else
+        echo "Skipping Tela Circle icon installation."
+    fi
+}
+
 # --- Main Installation Flow ---
 
 echo "Starting Hyprland Dotfiles Installation..."
@@ -433,3 +464,6 @@ echo "1. Review customization points in README.md."
 echo "2. Reboot your system."
 echo "3. Select the Hyprland session at your login manager."
 echo "--------------------------------------------------------"
+
+# Final optional: install Tela Circle icons
+install_tela_icons
