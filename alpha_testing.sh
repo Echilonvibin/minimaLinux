@@ -70,6 +70,12 @@ PACKAGES=(
     flatpak                   # Application sandbox and package manager
     noctalia-shell            # Bar from Noctalia
     gnome-disk-utility        # Disk Management
+    libopenraw                # Lib for Tumbler
+    libgsf                    # Lib for Tumbler
+    poppler-glib              # Lib for Tumbler
+    ffmpegthumbnailer         # Lib for Tumbler 
+    freetype2                 # Lib for Tumbler
+    libgepub                  # Lib for Tumbler
 )
 
 OPTIONALPKG=(
@@ -77,6 +83,7 @@ OPTIONALPKG=(
     video-downloader          # Download videos on your system, avoid sketchy websites! Yipee!
     mission-center            # Task Manager, Sleek
     protonplus                # Proton manager
+    deadbeef                  # Modular Audio Player
 )
 
 REPO_DIR=$(pwd)
@@ -233,7 +240,7 @@ setup_chaotic_aur() {
 # Remove conflicting packages
 remove_conflicting_packages() {
     echo "Removing conflicting packages..."
-    pacman -Rns --noconfirm dolphin polkit-kde-agent
+    pacman -Rns --noconfirm dolphin polkit-kde-agent vim
     
     if [ $? -eq 0 ]; then
         echo "Conflicting packages removed successfully."
