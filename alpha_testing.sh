@@ -95,6 +95,7 @@ PACKAGES=(
     ffmpegthumbnailer         # Lib for Tumbler 
     freetype2                 # Lib for Tumbler
     libgepub                  # Lib for Tumbler
+    gvfs                      # Needed for Thunar to see drives 
 )
 
 OPTIONALPKG=(
