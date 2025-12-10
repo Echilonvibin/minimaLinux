@@ -87,7 +87,6 @@ PACKAGES=(
     7zip                      # 7z archive support
     cava                      # Audio visualizer
     flatpak                   # Application sandbox and package manager
-    noctalia-shell            # Bar from Noctalia
     gnome-disk-utility        # Disk Management
     libopenraw                # Lib for Tumbler
     libgsf                    # Lib for Tumbler
@@ -96,6 +95,7 @@ PACKAGES=(
     freetype2                 # Lib for Tumbler
     libgepub                  # Lib for Tumbler
     gvfs                      # Needed for Thunar to see drives 
+    yay                       # AUR Helper
 )
 
 OPTIONALPKG=(
@@ -466,5 +466,56 @@ echo "2. Reboot your system."
 echo "3. Select the Hyprland session at your login manager."
 echo "--------------------------------------------------------"
 
+# Install noctalia-shell-git via yay
+echo "Installing noctalia-shell-git via yay..."
+sudo -u "$ACTUAL_USER" yay -S --noconfirm noctalia-shell-git
+
+if [ $? -ne 0 ]; then
+    echo "Warning: Failed to install noctalia-shell-git."
+fi
+
+# Optional: Install Orchis GTK theme
+echo -e "\n--- Optional: Orchis GTK Theme ---"
+read -r -p "Do you want to install optional GTK themes? (y/n): " gtk_response
+if [[ "$gtk_response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    WORKDIR="/tmp/Orchis-theme-$$"
+    mkdir -p "$WORKDIR"
+    echo "Cloning Orchis theme repository..."
+    if ! git clone https://github.com/vinceliuice/Orchis-theme.git "$WORKDIR/Orchis-theme"; then
+        echo "ERROR: Failed to clone Orchis theme repository."
+    else
+        cd "$WORKDIR/Orchis-theme" || { echo "ERROR: Failed to enter repo directory."; }
+        echo "Installing Orchis theme..."
+        if ./install.sh -c dark -t all; then
+            echo "Orchis theme installed successfully."
+        else
+            echo "ERROR: Orchis theme installation failed."
+        fi
+    fi
+else
+    echo "Skipping GTK theme installation."
+fi
+
 # Final optional: install Tela Circle icons
 install_tela_icons
+
+# Reboot confirmation
+echo ""
+echo "Installation complete! Time to reboot."
+while true; do
+    read -r -p "Would you like to reboot now? (y/n): " reboot_choice
+    case "$reboot_choice" in
+        y|Y|yes|YES)
+            echo "Rebooting now..."
+            sudo reboot now
+            break
+            ;;
+        n|N|no|NO)
+            echo ""
+            echo "Installation complete! Time to reboot."
+            ;;
+        *)
+            echo "Please answer 'y' or 'n'."
+            ;;
+    esac
+done
