@@ -1,0 +1,78 @@
+[colors]
+ansi = [
+    "#f0f2f7",
+    "#e55561",
+    "#4c663b",
+    "#9e8c6b",
+    "#4e70c2",
+    "#85539c",
+    "#569b9f",
+    "#6a708a",
+]
+background = "#f0f2f7"
+brights = [
+    "#939ab7",
+    "#d26e7a",
+    "#5e7250",
+    "#9e8c6b",
+    "#5e7bba",
+    "#85539c",
+    "#569b9f",
+    "#4e70c2",
+]
+cursor_bg = "#4e70c2"
+cursor_border = "#4e70c2"
+cursor_fg = "#f0f2f7"
+foreground = "#4e70c2"
+selection_bg = "#c8ccd8"
+selection_fg = "#4e70c2"
+
+[colors.indexed]
+
+[colors.tab_bar]
+background = "#dbdfea"
+inactive_tab_edge = "#e6eaf3"
+
+[colors.tab_bar.active_tab]
+bg_color = "#f0f2f7"
+fg_color = "#4e70c2"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#dbdfea"
+fg_color = "#939ab7"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#dbdfea"
+fg_color = "#4e70c2"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab]
+bg_color = "#dbdfea"
+fg_color = "#4e70c2"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#4e70c2"
+fg_color = "#f0f2f7"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[metadata]
+author = "folke (Moon Adapted)"
+name = "TokyoNight-Moon-Light"

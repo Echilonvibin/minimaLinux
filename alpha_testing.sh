@@ -499,6 +499,92 @@ fi
 # Final optional: install Tela Circle icons
 install_tela_icons
 
+# Custom theme installation
+echo ""
+echo "--- Custom Theme Installation ---"
+echo "Would you like to install a custom theme?"
+echo "Available themes:"
+echo "  1. Catppuccin"
+echo "  2. Gruvbox"
+echo "  3. Nightfox Red"
+echo "  4. Nord"
+echo "  5. Tokyo"
+echo "  6. No, skip theme installation"
+echo ""
+
+while true; do
+    read -r -p "Enter your choice (1-6): " theme_choice
+    case "$theme_choice" in
+        1)
+            echo "Installing Catppuccin theme..."
+            THEME_SOURCE="$REPO_DIR/custom/Catppuccin/.config"
+            if [ -d "$THEME_SOURCE" ]; then
+                cp -rf "$THEME_SOURCE"/* "$CONFIG_DIR"/
+                chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
+                echo "Catppuccin theme installed successfully!"
+            else
+                echo "ERROR: Catppuccin theme directory not found."
+            fi
+            break
+            ;;
+        2)
+            echo "Installing Gruvbox theme..."
+            THEME_SOURCE="$REPO_DIR/custom/Gruvbox/.config"
+            if [ -d "$THEME_SOURCE" ]; then
+                cp -rf "$THEME_SOURCE"/* "$CONFIG_DIR"/
+                chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
+                echo "Gruvbox theme installed successfully!"
+            else
+                echo "ERROR: Gruvbox theme directory not found."
+            fi
+            break
+            ;;
+        3)
+            echo "Installing Nightfox Red theme..."
+            THEME_SOURCE="$REPO_DIR/custom/Nightfox Red/.config"
+            if [ -d "$THEME_SOURCE" ]; then
+                cp -rf "$THEME_SOURCE"/* "$CONFIG_DIR"/
+                chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
+                echo "Nightfox Red theme installed successfully!"
+            else
+                echo "ERROR: Nightfox Red theme directory not found."
+            fi
+            break
+            ;;
+        4)
+            echo "Installing Nord theme..."
+            THEME_SOURCE="$REPO_DIR/custom/Nord/.config"
+            if [ -d "$THEME_SOURCE" ]; then
+                cp -rf "$THEME_SOURCE"/* "$CONFIG_DIR"/
+                chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
+                echo "Nord theme installed successfully!"
+            else
+                echo "ERROR: Nord theme directory not found."
+            fi
+            break
+            ;;
+        5)
+            echo "Installing Tokyo theme..."
+            THEME_SOURCE="$REPO_DIR/custom/Tokyo/.config"
+            if [ -d "$THEME_SOURCE" ]; then
+                cp -rf "$THEME_SOURCE"/* "$CONFIG_DIR"/
+                chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
+                echo "Tokyo theme installed successfully!"
+            else
+                echo "ERROR: Tokyo theme directory not found."
+            fi
+            break
+            ;;
+        6)
+            echo "Skipping custom theme installation."
+            break
+            ;;
+        *)
+            echo "Invalid choice. Please enter a number between 1 and 6."
+            ;;
+    esac
+done
+
 # Reboot confirmation
 echo ""
 echo "Installation complete! Time to reboot."

@@ -1,0 +1,33 @@
+# Colors (TokyoNight-Moon)
+
+[colors.bright]
+black = '#545c7e'
+blue = '#7a88cf'
+cyan = '#7bb0c0'
+green = '#9cd58a'
+magenta = '#d7729f'
+red = '#f7768e'
+white = '#a9b1d6'
+yellow = '#e6c384'
+
+[colors.cursor]
+cursor = '#a9b1d6'
+text = '#1f2335'
+
+[colors.normal]
+black = '#1f2335'
+blue = '#7a88cf'
+cyan = '#7bb0c0'
+green = '#9cd58a'
+magenta = '#d7729f'
+red = '#f7768e'
+white = '#8289a6'
+yellow = '#e6c384'
+
+[colors.primary]
+background = '#1f2335'
+foreground = '#a9b1d6'
+
+[colors.selection]
+background = '#4b517a'
+text = '#a9b1d6'
