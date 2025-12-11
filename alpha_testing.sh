@@ -4,7 +4,7 @@ export LC_MESSAGES=C
 export LANG=C
 
 # --- Pre-flight confirmation ---
-echo "This script will install custom dot-files for use on a fresh install of Hyprland (Arch Linux only). Use at your own risk."
+echo "This script will install custom dot-files for Hyprland and the Chaotic AUR. Use only with fresh install of Hyprland (Vanilla Arch Linux only). Use at your own risk."
 while true; do
     read -r -p "Would you like to proceed? (y/n): " proceed
     case "$proceed" in
