@@ -63,6 +63,7 @@ PACKAGES=(
     hyprshot                  # Screenshot selector region - this is a standalone app
     gedit                     # Gnome Advanced Text Editor
     nwg-look                  # Look and feel configuration
+    nwg-displays              # Configure Monitors 
     kitty-shell-integration   # Kitty terminal shell integration
     kitty-terminfo            # Terminfo for Kitty
     xdg-desktop-portal-gtk    # GTK implementation of xdg-desktop-portal
