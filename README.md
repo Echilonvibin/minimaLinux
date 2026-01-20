@@ -28,6 +28,12 @@ The primary application bar (`noctalia-shell-git`) is based on the exceptional w
 
 ---
 
+![Red](Red Theme.png)
+
+
+![TokyoNight](TokyoNight.png)
+
+
 ## 📦 What's Included?
 
 This repository provides comprehensive configurations for a complete, customized Hyprland desktop environment.
