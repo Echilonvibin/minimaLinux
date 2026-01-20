@@ -28,7 +28,7 @@ The primary application bar (`noctalia-shell-git`) is based on the exceptional w
 
 ---
 
-![Red](RedTheme.png)
+![Red](Red.png)
 
 ![TokyoNight](TokyoNight.png)
 
