@@ -97,6 +97,8 @@ PACKAGES=(
     libgepub                  # Lib for Tumbler
     gvfs                      # Needed for Thunar to see drives 
     yay                       # AUR Helper
+    base-devel                # Build package
+    clang                     # Build package 
 )
 
 OPTIONALPKG=(
