@@ -6,7 +6,7 @@
 
 # echilon-dotfiles
 
-A curated collection of custom configuration files (dotfiles) for the **Hyprland** Wayland compositor, maintained by Echilon & tonekneeo & Nyte.
+A curated collection of custom configuration files (dotfiles) for the **Hyprland** Wayland compositor, maintained by Echilon & Tonekneeo & Xnyte.
 
 ---
 
