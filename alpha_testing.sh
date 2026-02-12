@@ -113,6 +113,7 @@ PACKAGES=(
     loupe                     # Image viewer
     cpupower                  # CPU frequency scaling utilities
     upower                    # Power management service
+    qt6ct                     # Qt6 Settings 
 )
 
 OPTIONALPKG=(
