@@ -515,6 +515,36 @@ set_default_file_manager() {
     echo "Default file manager set to Thunar."
 }
 
+# Setup Noctalia user systemd service
+setup_noctalia_service() {
+    echo ""
+    echo "Setting up Noctalia systemd service..."
+
+    local user_systemd_dir="$ACTUAL_USER_HOME/.config/systemd/user"
+    local uid
+
+    uid=$(id -u "$ACTUAL_USER")
+
+    sudo -u "$ACTUAL_USER" mkdir -p "$user_systemd_dir"
+
+    sudo -u "$ACTUAL_USER" tee "$user_systemd_dir/noctalia.service" >/dev/null <<'EOF'
+[Unit]
+Description=Noctalia Shell Service
+After=default.target
+
+[Service]
+ExecStart=qs -c noctalia-shell
+Restart=on-failure
+RestartSec=1
+
+[Install]
+WantedBy=default.target
+EOF
+
+    sudo -u "$ACTUAL_USER" XDG_RUNTIME_DIR="/run/user/$uid" systemctl --user enable --now noctalia.service \
+        || echo "Warning: Failed to enable noctalia service. You may need to log in first."
+}
+
 # Copy backup config files if available
 copy_backup_configs() {
     echo -e "\n--- Optional: Copy Backup Configs ---"
@@ -629,6 +659,9 @@ set_default_file_manager
 
 # Copy backup config files if available
 copy_backup_configs
+
+# Setup Noctalia systemd service
+setup_noctalia_service
 
 # Reboot confirmation
 echo ""
