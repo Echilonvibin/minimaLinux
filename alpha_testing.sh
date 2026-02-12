@@ -509,7 +509,9 @@ setup_ddcutil() {
 set_default_file_manager() {
     echo ""
     echo "Setting Thunar as default file manager..."
-    xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
+    # Ensure the user config directory exists so xdg-mime writes to the correct path.
+    sudo -u "$ACTUAL_USER" mkdir -p "$ACTUAL_USER_HOME/.config"
+    sudo -u "$ACTUAL_USER" xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
     echo "Default file manager set to Thunar."
 }
 
