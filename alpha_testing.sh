@@ -50,6 +50,7 @@ PACKAGES=(
     hyprlock                  # Locks screen, obviously. 
     hypridle                  # Turns off screen after set time
     pavucontrol               # PulseAudio/PipeWire volume control
+    playerctl                 # Media player controller
     wlsunset                  # Nightlight for quickshell
     fish                      # Shell
     fastfetch                 # System Info Display
@@ -95,12 +96,23 @@ PACKAGES=(
     freetype2                 # Lib for Tumbler
     libgepub                  # Lib for Tumbler
     gvfs                      # Needed for Thunar to see drives 
+    ntfs-3g                   # NTFS filesystem support
+    dosfstools                # DOS filesystem utilities
+    exfatprogs                # exFAT filesystem support
     yay                       # AUR Helper
     base-devel                # Build package
     clang                     # Build package
+    cmake                     # Cross-platform build system
+    go                        # Go programming language compiler
+    rust                      # Rust programming language compiler
+    pkgconf                   # Package config system
+    meson                     # Modern build system
+    ninja                     # Small build system focused on speed
     matugen                   # Color Generation
     adw-gtk-theme             # Libadwaita theme
     loupe                     # Image viewer
+    cpupower                  # CPU frequency scaling utilities
+    upower                    # Power management service
 )
 
 OPTIONALPKG=(
@@ -384,34 +396,159 @@ set_permissions() {
     fi
 }
 
-# Install Tela Circle icon theme (final optional step)
-install_tela_icons() {
-    echo -e "\n--- Optional: Tela Circle Icon Theme ---"
-    echo "The Tela Circle icon collection can be installed."
-    echo "Repo: https://github.com/vinceliuice/Tela-circle-icon-theme"
-    read -r -p "Do you want to install Tela Circle icons? (y/N): " response
-    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-        WORKDIR="/tmp/Tela-circle-icon-theme-$$"
-        mkdir -p "$WORKDIR"
-        echo "Cloning repository to $WORKDIR ..."
-        if ! git clone --depth=1 https://github.com/vinceliuice/Tela-circle-icon-theme.git "$WORKDIR/Tela-circle-icon-theme"; then
-            echo "ERROR: Failed to clone Tela Circle icon theme repository."
+# Browser installation
+install_browser() {
+    echo -e "\n--- Browser Installation ---"
+    echo "Which browser would you like to install?"
+    echo "  1. Vivaldi"
+    echo "  2. Brave"
+    echo "  3. Zen Browser"
+    echo "  4. Firefox"
+    echo "  5. Skip browser installation"
+    echo ""
+    
+    while true; do
+        read -r -p "Enter your choice (1-5): " browser_choice
+        case "$browser_choice" in
+            1)
+                echo "Installing Vivaldi..."
+                pacman -S --noconfirm vivaldi
+                if [ $? -eq 0 ]; then
+                    echo "Vivaldi installed successfully!"
+                else
+                    echo "ERROR: Failed to install Vivaldi."
+                fi
+                break
+                ;;
+            2)
+                echo "Installing Brave..."
+                pacman -S --noconfirm brave-bin
+                if [ $? -eq 0 ]; then
+                    echo "Brave installed successfully!"
+                else
+                    echo "ERROR: Failed to install Brave."
+                fi
+                break
+                ;;
+            3)
+                echo "Installing Zen Browser..."
+                pacman -S --noconfirm zen-browser-bin
+                if [ $? -eq 0 ]; then
+                    echo "Zen Browser installed successfully!"
+                else
+                    echo "ERROR: Failed to install Zen Browser."
+                fi
+                break
+                ;;
+            4)
+                echo "Installing Firefox..."
+                pacman -S --noconfirm firefox
+                if [ $? -eq 0 ]; then
+                    echo "Firefox installed successfully!"
+                else
+                    echo "ERROR: Failed to install Firefox."
+                fi
+                break
+                ;;
+            5)
+                echo "Skipping browser installation."
+                break
+                ;;
+            *)
+                echo "Invalid choice. Please enter a number between 1 and 5."
+                ;;
+        esac
+    done
+}
+
+# Setup ddcutil for monitor brightness control
+setup_ddcutil() {
+    echo -e "\n--- Optional: ddcutil Setup ---"
+    echo "ddcutil allows you to control monitor brightness via DDC/CI protocol."
+    read -r -p "Do you want to install and configure ddcutil? (y/N): " ddcutil_response
+    
+    if [[ "$ddcutil_response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+        echo "Setting up ddcutil..."
+        
+        # Install ddcutil
+        pacman -S --noconfirm --needed ddcutil
+        if [ $? -ne 0 ]; then
+            echo "ERROR: Failed to install ddcutil."
             return 1
         fi
-        cd "$WORKDIR/Tela-circle-icon-theme" || { echo "ERROR: Failed to enter repo directory."; return 1; }
-        ICON_TARGET_DIR="$ACTUAL_USER_HOME/.local/share/icons"
-        mkdir -p "$ICON_TARGET_DIR"
-        echo "Running installer to '$ICON_TARGET_DIR' ..."
-        # Run installer (script expects root for system-wide; we target user's icons dir)
-        if ./install.sh -a -c -d "$ICON_TARGET_DIR"; then
-            chown -R "$ACTUAL_USER:$ACTUAL_USER" "$ICON_TARGET_DIR"
-            echo "Tela Circle icons installed to $ICON_TARGET_DIR"
+        
+        # Load i2c-dev module
+        modprobe i2c-dev
+        if [ $? -ne 0 ]; then
+            echo "Warning: Failed to load i2c-dev module."
+        fi
+        
+        # Make i2c-dev load on boot
+        echo "i2c-dev" > /etc/modules-load.d/i2c-dev.conf
+        if [ $? -ne 0 ]; then
+            echo "Warning: Failed to configure i2c-dev autoload."
+        fi
+        
+        # List i2c devices
+        echo "Available i2c devices:"
+        ls /dev/i2c-* 2>/dev/null || echo "No i2c devices found (this is normal if not yet configured)"
+        
+        # Add user to i2c group
+        usermod -aG i2c "$ACTUAL_USER"
+        if [ $? -ne 0 ]; then
+            echo "Warning: Failed to add user to i2c group."
+        fi
+        
+        echo "ddcutil setup complete. You may need to log out and back in for group changes to take effect."
+    else
+        echo "Skipping ddcutil setup."
+    fi
+}
+
+# Set default file manager to Thunar
+set_default_file_manager() {
+    echo ""
+    echo "Setting Thunar as default file manager..."
+    xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
+    echo "Default file manager set to Thunar."
+}
+
+# Copy backup config files if available
+copy_backup_configs() {
+    echo -e "\n--- Optional: Copy Backup Configs ---"
+    
+    local config_source="$REPO_DIR/backup/.config"
+    
+    if [[ ! -d "$config_source" ]]; then
+        echo "No backup folder found at $REPO_DIR/backup/.config"
+        echo "Skipping backup config restoration."
+        return 0
+    fi
+    
+    echo "Found backup configs at: $config_source"
+    read -r -p "Do you want to restore config files from backup? (y/N): " backup_response
+    
+    if [[ "$backup_response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+        echo "Copying config files from backup to $CONFIG_DIR..."
+        cp -rf "$config_source"/* "$CONFIG_DIR"/
+        
+        if [ $? -eq 0 ]; then
+            echo "Config files copied successfully!"
+            
+            # Fix ownership since we're running as root
+            chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
+            
+            # If running under Hyprland, reload it to apply config changes
+            if [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]]; then
+                echo "Detected Hyprland environment. Reloading Hyprland to apply new configs..."
+                hyprctl reload 2>/dev/null || echo "Note: Could not reload Hyprland. You may need to restart it manually."
+                sleep 2
+            fi
         else
-            echo "ERROR: Tela Circle icon installation failed."
-            return 1
+            echo "ERROR: Failed to copy backup config files."
         fi
     else
-        echo "Skipping Tela Circle icon installation."
+        echo "Skipping backup config restoration."
     fi
 }
 
@@ -479,116 +616,17 @@ if [ $? -ne 0 ]; then
     echo "Warning: Failed to install noctalia-shell-git."
 fi
 
-# Optional: Install Orchis GTK theme
-echo -e "\n--- Optional: Orchis GTK Theme ---"
-read -r -p "Do you want to install optional GTK themes? (y/n): " gtk_response
-if [[ "$gtk_response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    WORKDIR="/tmp/Orchis-theme-$$"
-    mkdir -p "$WORKDIR"
-    echo "Cloning Orchis theme repository..."
-    if ! git clone https://github.com/vinceliuice/Orchis-theme.git "$WORKDIR/Orchis-theme"; then
-        echo "ERROR: Failed to clone Orchis theme repository."
-    else
-        cd "$WORKDIR/Orchis-theme" || { echo "ERROR: Failed to enter repo directory."; }
-        echo "Installing Orchis theme..."
-        if ./install.sh -c dark -t all; then
-            echo "Orchis theme installed successfully."
-        else
-            echo "ERROR: Orchis theme installation failed."
-        fi
-    fi
-else
-    echo "Skipping GTK theme installation."
-fi
+# Browser installation
+install_browser
 
-# Final optional: install Tela Circle icons
-install_tela_icons
+# Setup ddcutil for monitor brightness control
+setup_ddcutil
 
-# Custom theme installation
-echo ""
-echo "--- Custom Theme Installation ---"
-echo "Would you like to install a custom theme?"
-echo "Available themes:"
-echo "  1. Catppuccin"
-echo "  2. Gruvbox"
-echo "  3. Nightfox Red"
-echo "  4. Nord"
-echo "  5. Tokyo"
-echo "  6. No, skip theme installation"
-echo ""
+# Set default file manager to Thunar
+set_default_file_manager
 
-while true; do
-    read -r -p "Enter your choice (1-6): " theme_choice
-    case "$theme_choice" in
-        1)
-            echo "Installing Catppuccin theme..."
-            THEME_SOURCE="$REPO_DIR/custom/Catppuccin/.config"
-            if [ -d "$THEME_SOURCE" ]; then
-                cp -rf "$THEME_SOURCE"/* "$CONFIG_DIR"/
-                chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
-                echo "Catppuccin theme installed successfully!"
-            else
-                echo "ERROR: Catppuccin theme directory not found."
-            fi
-            break
-            ;;
-        2)
-            echo "Installing Gruvbox theme..."
-            THEME_SOURCE="$REPO_DIR/custom/Gruvbox/.config"
-            if [ -d "$THEME_SOURCE" ]; then
-                cp -rf "$THEME_SOURCE"/* "$CONFIG_DIR"/
-                chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
-                echo "Gruvbox theme installed successfully!"
-            else
-                echo "ERROR: Gruvbox theme directory not found."
-            fi
-            break
-            ;;
-        3)
-            echo "Installing Nightfox Red theme..."
-            THEME_SOURCE="$REPO_DIR/custom/Nightfox Red/.config"
-            if [ -d "$THEME_SOURCE" ]; then
-                cp -rf "$THEME_SOURCE"/* "$CONFIG_DIR"/
-                chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
-                echo "Nightfox Red theme installed successfully!"
-            else
-                echo "ERROR: Nightfox Red theme directory not found."
-            fi
-            break
-            ;;
-        4)
-            echo "Installing Nord theme..."
-            THEME_SOURCE="$REPO_DIR/custom/Nord/.config"
-            if [ -d "$THEME_SOURCE" ]; then
-                cp -rf "$THEME_SOURCE"/* "$CONFIG_DIR"/
-                chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
-                echo "Nord theme installed successfully!"
-            else
-                echo "ERROR: Nord theme directory not found."
-            fi
-            break
-            ;;
-        5)
-            echo "Installing Tokyo theme..."
-            THEME_SOURCE="$REPO_DIR/custom/Tokyo/.config"
-            if [ -d "$THEME_SOURCE" ]; then
-                cp -rf "$THEME_SOURCE"/* "$CONFIG_DIR"/
-                chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
-                echo "Tokyo theme installed successfully!"
-            else
-                echo "ERROR: Tokyo theme directory not found."
-            fi
-            break
-            ;;
-        6)
-            echo "Skipping custom theme installation."
-            break
-            ;;
-        *)
-            echo "Invalid choice. Please enter a number between 1 and 6."
-            ;;
-    esac
-done
+# Copy backup config files if available
+copy_backup_configs
 
 # Reboot confirmation
 echo ""
