@@ -51,7 +51,6 @@ PACKAGES=(
     hypridle                  # Turns off screen after set time
     pavucontrol               # PulseAudio/PipeWire volume control
     wlsunset                  # Nightlight for quickshell
-    rofi                      # Application Launcher
     fish                      # Shell
     fastfetch                 # System Info Display
     bluez                     # Bluetooth utilities
@@ -98,7 +97,10 @@ PACKAGES=(
     gvfs                      # Needed for Thunar to see drives 
     yay                       # AUR Helper
     base-devel                # Build package
-    clang                     # Build package 
+    clang                     # Build package
+    matugen                   # Color Generation
+    adw-gtk-theme             # Libadwaita theme
+    loupe                     # Image viewer
 )
 
 OPTIONALPKG=(
