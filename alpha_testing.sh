@@ -113,7 +113,6 @@ PACKAGES=(
     loupe                     # Image viewer
     cpupower                  # CPU frequency scaling utilities
     upower                    # Power management service
-    qt6ct                     # Qt6 Settings 
 )
 
 OPTIONALPKG=(
@@ -357,33 +356,7 @@ deploy_configs() {
     done
 }
 
-# Deploy files from repo/.local/share to ~/.local/share
-deploy_local_share() {
-    echo "Deploying local share files..."
-    
-    LOCAL_SOURCE_ROOT="$REPO_DIR/.local/share"
-    LOCAL_TARGET_ROOT="$ACTUAL_USER_HOME/.local/share"
 
-    if [ ! -d "$LOCAL_SOURCE_ROOT" ]; then
-        echo "No .local/share directory found in repo, skipping..."
-        return
-    fi
-
-    mkdir -p "$LOCAL_TARGET_ROOT"
-
-    echo "Copying $LOCAL_SOURCE_ROOT -> $LOCAL_TARGET_ROOT"
-    if [ "$(ls -A "$LOCAL_SOURCE_ROOT")" ]; then
-        cp -a "$LOCAL_SOURCE_ROOT"/* "$LOCAL_TARGET_ROOT"/
-        if [ $? -ne 0 ]; then
-            echo "NON-FATAL ERROR: Failed to copy files from .local/share."
-        fi
-        
-        # Fix ownership since we're running as root
-        chown -R "$ACTUAL_USER:$ACTUAL_USER" "$LOCAL_TARGET_ROOT"
-    else
-        echo "Warning: .local/share directory is empty, skipping copy."
-    fi
-}
 
 # Set executable permissions for scripts
 set_permissions() {
@@ -612,7 +585,6 @@ install_optional_packages
 
 # 4. Deploy Configurations
 deploy_configs
-deploy_local_share
 
 # 5. Set Script Permissions
 set_permissions
