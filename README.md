@@ -2,16 +2,12 @@
   <img src="https://img.shields.io/github/last-commit/Echilonvibin/echilon-dotfiles" alt="Last Commit">
   <img src="https://img.shields.io/github/commit-activity/w/Echilonvibin/echilon-dotfiles" alt="Commit Activity">
   <img src="https://img.shields.io/badge/license-GPL--3.0-blue" alt="License">
-  <br><br>
-  <img src="Red.png" alt="Red Theme" width="49%">
-  <img src="TokyoNight.png" alt="Tokyo Night Theme" width="49%">
 </p>
 
-# echilon-dotfiles
-
-A curated collection of custom configuration files (dotfiles) for the **Hyprland** Wayland compositor, maintained by Echilon & tonekneeo & Xnyte.
-
----
+<p align="center">
+  <img src="Red.png" height="400">
+  <img src="TokyoNight.png" height="400">
+</p>
 
 ## ⚠️ Important Warnings & Disclaimer
 
