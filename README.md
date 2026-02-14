@@ -58,7 +58,7 @@ These dotfiles are provided strictly as a **template**. You **must** review and 
 | **`hypr/hyprland.conf`** | Monitor setup (resolution, scaling, refresh rate). | The current default is `monitor=,preferred,auto,1`. You may use `nwg-displays` to help configure and export precise settings. |
 | **`hypr/keybindings.conf`** | Set bindings here. Super+E is to open your file explorer. Super+D is the app launcher. |
 | **Theming** | Color schemes, fonts, and global aesthetic settings. | The default theme is minimal. Customize these within Noctalia's settings, go to color scheme, and then templates, you can set kitty, GTK, or whatever else you would like to match your color scheme. |
-| *NOTE* | adw-gtk3-dark | This will be needed to make changes to GTK. This comes preinstalled, you will have to set it in GTK the Settings. |
+| *NOTE ON THEMING* | adw-gtk3-dark | This will be needed to make changes to GTK. This comes preinstalled, you will have to set it in GTK the Settings. |
 | **`fastfetch/config.jsonc`** | Theming/Images. | Update the configuration for your specific image or ASCII art display. |
 
 ---
