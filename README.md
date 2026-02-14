@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://img.shields.io/github/last-commit/Echilonvibin/echilon-dotfiles" alt="Last Commit">
-  <img src="https://img.shields.io/github/commit-activity/w/Echilonvibin/echilon-dotfiles" alt="Commit Activity">
-  <img src="https://img.shields.io/github/license/Echilonvibin/echilon-dotfiles" alt="License">
+  <img src="https://img.shields.io/github/last-commit/Echilonvibin/echilon-dotfiles?style=flat-square" alt="Last Commit">
+  <img src="https://img.shields.io/github/commit-activity/w/Echilonvibin/echilon-dotfiles?style=flat-square" alt="Commit Activity">
+  <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License">
 </p>
 
 # echilon-dotfiles
