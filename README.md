@@ -14,7 +14,7 @@ A curated collection of custom configuration files (dotfiles) for the **Hyprland
 
 ### Fresh Install Requirement
 
-**This configuration is tailored for a FRESH INSTALL of VANILLA ARCH LINUX with Hyprland.** We strongly advise against attempting this installation on derivative distributions (such as CachyOS, Manjaro, etc.) as package and configuration conflicts are highly likely.
+**This configuration is tailored for a FRESH INSTALL of VANILLA ARCH LINUX with Hyprland.** We strongly advise against attempting this installation on derivative distributions (such as CachyOS, Manjaro, etc.) as package and configuration conflicts are highly likely. This includes packages you could install yourself, through Arch's repo, and a few AUR packages. This will install the chaotic AUR, the only AUR exclusive package that is installed, is the Noctalia bar itself. 
 
 ### Development Status
 
@@ -42,7 +42,7 @@ This repository provides comprehensive configurations for a complete, customized
 | **`hypr`** | Main Hyprland configuration, including keybinds, window rules, and workspace setup. **(Requires customization)** |
 | **`kitty`** | Configuration for the primary GPU-accelerated terminal emulator. |
 | **`fish`** | Configuration for the Fish shell, including custom functions and the Starship prompt. |
-| **`rofi`** | Custom themes and scripts for the application launcher and utility menus. |
+| **`Noctalia`** | The main bar, includes various theming settings, general use case settings. It's very much an all in one. |
 | **`fastfetch`** | Configuration for displaying system information with custom images/ASCII art. |
 | **`install.sh`** | An automated script for package installation and configuration deployment. |
 | **`uninstall.sh`** | A script to revert changes and restore previous configurations (if a backup exists). |
@@ -56,9 +56,9 @@ These dotfiles are provided strictly as a **template**. You **must** review and 
 | File/Section | Customization Needed | Notes |
 | :--- | :--- | :--- |
 | **`hypr/hyprland.conf`** | Monitor setup (resolution, scaling, refresh rate). | The current default is `monitor=,preferred,auto,1`. You may use `nwg-displays` to help configure and export precise settings. |
-| **`hypr/keybindings.conf`** | Script execution paths. | **Crucial:** Ensure the absolute paths to executable scripts (e.g., `keyhints`, custom utility scripts) are correct for your system. |
-| **Wallpaper Engine** | Custom wallpaper assets and workshop path. | Refer to the [linux-wallpaperengine GitHub](https://github.com/Almamu/linux-wallpaperengine) for details. **🚨 NO SUPPORT WILL BE PROVIDED FOR WALLPAPER ENGINE 🚨** |
-| **Theming** | Color schemes, fonts, and global aesthetic settings. | The default theme is minimal. Customize these files to add your preferred color palette and font stack. |
+| **`hypr/keybindings.conf`** | Set bindings here. Super+E is to open your file explorer. Super+D is the app launcher. |
+| **Theming** | Color schemes, fonts, and global aesthetic settings. | The default theme is minimal. Customize these within Noctalia's settings, go to color scheme, and then templates, you can set kitty, GTK, or whatever else you would like to match your color scheme. |
+| *NOTE* adw-gtk3-dark will be needed to make changes to GTK. This comes preinstalled, you will have to set it in GTK the Settings. |
 | **`fastfetch/config.jsonc`** | Theming/Images. | Update the configuration for your specific image or ASCII art display. |
 
 ---
