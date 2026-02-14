@@ -104,12 +104,3 @@ Navigate to the repository directory (if not already there) and execute the unin
 ```bash
 ./uninstall.sh
 ```
-
-### Step 2: Manually Remove Software (Optional)
-The uninstallation script restores configurations but does not remove packages. If you wish to completely remove the installed software, you must run a separate command using your package manager (e.g., yay, pacman).
-
-# Example command to remove core packages (adjust the list as needed)
-```
-yay -R nautilus noctalia-shell-git upscayl-bin video-downloader gnome-calculator loupe gcolor3 protonplus mission-center
-```
-
