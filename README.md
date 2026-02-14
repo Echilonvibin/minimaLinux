@@ -4,10 +4,12 @@
   <img src="https://img.shields.io/badge/license-GPL--3.0-blue" alt="License">
 </p>
 
-<p align="center">
-  <img src="Red.png" height="400">
-  <img src="TokyoNight.png" height="400">
-</p>
+<details>
+  <summary align="center"><b>📸 Click to view Theme Screenshots</b></summary>
+  <p align="center">
+    <img src="Red.png" height="350" style="vertical-align: middle;"><img src="TokyoNight.png" height="350" style="vertical-align: middle;">
+  </p>
+</details>
 
 ## ⚠️ Important Warnings & Disclaimer
 
