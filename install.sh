@@ -284,6 +284,7 @@ setup_chaotic_aur() {
 # --- Main Installation Functions ---
 
 # Remove conflicting packages
+# echilon, tonekneeo, xnyte
 remove_conflicting_packages() {
     echo "Removing conflicting packages..."
     pacman -Rns --noconfirm dolphin polkit-kde-agent vim
