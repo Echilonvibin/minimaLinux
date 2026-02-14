@@ -18,7 +18,7 @@ A curated collection of custom configuration files (dotfiles) for the **Hyprland
 
 ### Development Status
 
-This configuration is in **active development** and is currently being "vibe coded." While all components are functional during testing, we advise using it **at your own risk**. More rigorous testing is scheduled.
+This script, is now released. It is no longer in beta state. This project originally started as a vibe coded project to see what we could get away with. It quickly turned into only being an outline, as A.I is too frustrating to deal with after more than 80 lines of code. The rest, is completely scripted by tonekneeo, and myself.
 
 ### Credits
 
