@@ -34,6 +34,7 @@ if [ ! -f /etc/pacman.conf ]; then
 fi
 
 # --- Configuration ---
+# echilon, tonekneeo, xnyte
 # Get the actual user running the script (not root)
 if [ -n "$SUDO_USER" ]; then
     ACTUAL_USER="$SUDO_USER"
@@ -284,7 +285,6 @@ setup_chaotic_aur() {
 # --- Main Installation Functions ---
 
 # Remove conflicting packages
-# echilon, tonekneeo, xnyte
 remove_conflicting_packages() {
     echo "Removing conflicting packages..."
     pacman -Rns --noconfirm dolphin polkit-kde-agent vim
@@ -520,6 +520,28 @@ EOF
         || echo "Warning: Failed to enable noctalia service. You may need to log in first."
 }
 
+# Create GTK bookmarks for Thunar
+create_thunar_bookmarks() {
+    echo ""
+    echo "Creating Thunar bookmarks..."
+
+    local gtk_dir="$ACTUAL_USER_HOME/.config/gtk-3.0"
+    local bookmarks_file="$gtk_dir/bookmarks"
+
+    sudo -u "$ACTUAL_USER" mkdir -p "$gtk_dir"
+
+    sudo -u "$ACTUAL_USER" tee "$bookmarks_file" >/dev/null <<EOF
+file://$ACTUAL_USER_HOME/Documents
+file://$ACTUAL_USER_HOME/Downloads
+file://$ACTUAL_USER_HOME/Pictures
+file://$ACTUAL_USER_HOME/Music
+file://$ACTUAL_USER_HOME/Videos
+file://$ACTUAL_USER_HOME/.config/hypr
+EOF
+
+    echo "Thunar bookmarks created at $bookmarks_file."
+}
+
 # Copy backup config files if available
 copy_backup_configs() {
     echo -e "\n--- Optional: Copy Backup Configs ---"
@@ -636,6 +658,9 @@ copy_backup_configs
 
 # Setup Noctalia systemd service
 setup_noctalia_service
+
+# Create Thunar bookmarks
+create_thunar_bookmarks
 
 # Reboot confirmation
 echo ""
