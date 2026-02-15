@@ -114,6 +114,7 @@ PACKAGES=(
     loupe                     # Image viewer
     cpupower                  # CPU frequency scaling utilities
     upower                    # Power management service
+    gpu-screen-recorder       # Screen Recorder
 )
 
 OPTIONALPKG=(
