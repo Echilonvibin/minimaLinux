@@ -69,12 +69,12 @@ You must be running an **Arch-based Linux distribution** and have basic developm
 Open your terminal and clone the repository using `git`:
 
 ```bash
-git clone https://github.com/Echilonvibin/echilon-dotfiles.git
+git clone https://github.com/Echilonvibin/minimaLinux.git
 ```
 
 ### Step 2: Change directory to the repo
 ```bash
-cd ./echilon-dotfiles
+cd ./minimaLinux
 ```
 
 ### Step 3: Make the install script executable
