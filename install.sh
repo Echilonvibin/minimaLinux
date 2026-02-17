@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 export LC_MESSAGES=C
@@ -607,13 +608,7 @@ fi
 # 3. Optional install packages
 install_optional_packages
 
-# 4. Deploy Configurations
-deploy_configs
-
-# 5. Set Script Permissions
-set_permissions
-
-# 6. Update user directories
+# 4. Update user directories
 echo "Updating user directories..."
 sudo -u "$ACTUAL_USER" xdg-user-dirs-update
 
@@ -663,6 +658,12 @@ setup_noctalia_service
 # Create Thunar bookmarks
 create_thunar_bookmarks
 
+# Deploy Configurations
+deploy_configs
+
+# Set Script Permissions
+set_permissions
+
 # Reboot confirmation
 echo ""
 echo "Installation complete! Time to reboot."
@@ -683,3 +684,4 @@ while true; do
             ;;
     esac
 done
+
