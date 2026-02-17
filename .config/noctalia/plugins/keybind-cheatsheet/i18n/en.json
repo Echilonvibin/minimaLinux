@@ -1,0 +1,62 @@
+{
+  "keybind-cheatsheet": {
+    "default-category": "Keybinds",
+    "error": {
+      "unsupported-compositor": "Unsupported Compositor",
+      "sway-not-supported": "Sway is not yet supported",
+      "sway-detail": "Sway support may be added in a future update (similar format to Hyprland)",
+      "labwc-not-supported": "LabWC is not supported",
+      "labwc-detail": "LabWC uses XML config format which is incompatible with this plugin",
+      "mango-not-supported": "MangoWC is not supported",
+      "mango-detail": "MangoWC config format is not compatible with this plugin",
+      "unknown-compositor": "Unknown compositor detected",
+      "unknown-detail": "This plugin only supports Hyprland and Niri compositors"
+    },
+    "panel": {
+      "loading": "Loading...",
+      "title": "Keymap",
+      "title-hyprland": "Hyprland Keymap",
+      "title-niri": "Niri Keymap",
+      "workspace-switching": "WORKSPACES - SWITCHING",
+      "workspace-moving": "WORKSPACES - MOVING",
+      "workspace-mouse": "WORKSPACES - MOUSE"
+    },
+    "settings": {
+      "title": "Keybind Cheatsheet Settings",
+      "description": "Configure the appearance and keybind sources for the keybind cheatsheet panel.",
+      "window-size": "Window Size",
+      "width": "Width:",
+      "height": "Height:",
+      "auto-height": "Auto",
+      "auto-height-hint": "When 'Auto' is enabled, height adjusts automatically based on content.",
+      "layout": "Layout",
+      "columns": "Number of columns:",
+      "columns-hint": "More columns work better with wider windows.",
+      "config-paths": "Configuration Files",
+      "config-paths-description": "Specify custom paths to your keybind configuration files. The plugin will automatically parse the appropriate file based on your compositor and follow all include/source directives.",
+      "hyprland-format-hint": "Expected format: bind = $mod, KEY, action #\"description\"\nCategories: # 1. CATEGORY NAME",
+      "niri-format-hint": "Categories are created with: // #\"Category Name\"\nDescriptions: hotkey-overlay-title=\"description\"",
+      "actions": "Actions",
+      "refresh-keybinds": "Refresh Keybinds",
+      "refresh-message": "Keybinds will be reloaded when you open the panel.",
+      "reset-defaults": "Reset to Defaults",
+      "reset-message": "Settings have been reset to defaults.",
+      "saved": "Settings saved successfully.",
+      "keybind-setup": "Keybind Setup",
+      "keybind-setup-description": "To open the keybind cheatsheet with a keyboard shortcut, add this bind to your compositor config:",
+      "keybind-example-hyprland": "Hyprland example: bind = $mod, F1, exec, qs -c \"noctalia-shell\" ipc call plugin:keybind-cheatsheet toggle",
+      "keybind-example-niri": "Niri example: Super+F1 { spawn \"qs\" \"-c\" \"noctalia-shell\" \"ipc\" \"call\" \"plugin\" \"togglePanel\" \"keybind-cheatsheet\"; }",
+      "mod-var": "Mod Key Variable",
+      "mod-var-hint": "The variable name used for your Super key (e.g., $mod or $mainMod).",
+      "width-range": "px (400-3000)",
+      "height-range": "px (300-2000)",
+      "hyprland-path": "Hyprland Path",
+      "niri-path": "Niri Path"
+    },
+    "barwidget": {
+      "tooltip": "Keybind Cheatsheet",
+      "open": "Open Cheatsheet",
+      "settings": "Plugin Settings"
+    }
+  }
+}

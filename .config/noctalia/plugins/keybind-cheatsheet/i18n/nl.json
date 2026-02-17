@@ -1,0 +1,62 @@
+{
+  "keybind-cheatsheet": {
+    "default-category": "Sneltoetsen",
+    "error": {
+      "unsupported-compositor": "Niet-ondersteunde compositor",
+      "sway-not-supported": "Sway wordt nog niet ondersteund",
+      "sway-detail": "Sway-ondersteuning kan worden toegevoegd in een toekomstige update (vergelijkbaar formaat met Hyprland)",
+      "labwc-not-supported": "LabWC wordt niet ondersteund",
+      "labwc-detail": "LabWC gebruikt XML-configuratieformaat dat incompatibel is met deze plugin",
+      "mango-not-supported": "MangoWC wordt niet ondersteund",
+      "mango-detail": "Het MangoWC-configuratieformaat is niet compatibel met deze plugin",
+      "unknown-compositor": "Onbekende compositor gedetecteerd",
+      "unknown-detail": "Deze plugin ondersteunt alleen Hyprland- en Niri-compositors"
+    },
+    "panel": {
+      "loading": "Laden...",
+      "title": "Toetsenbordindeling",
+      "title-hyprland": "Hyprland toetsenbordindeling",
+      "title-niri": "Niri toetsenbordindeling",
+      "workspace-switching": "WERKRUIMTEN - WISSELEN",
+      "workspace-moving": "WERKRUIMTEN - VERPLAATSEN",
+      "workspace-mouse": "WERKRUIMTEN - MUIS"
+    },
+    "settings": {
+      "title": "Sneltoetsen Overzicht Instellingen",
+      "description": "Configureer het uiterlijk en de bronnen van sneltoetsen voor het paneel.",
+      "window-size": "Venstergrootte",
+      "width": "Breedte:",
+      "height": "Hoogte:",
+      "auto-height": "Auto",
+      "auto-height-hint": "Wanneer 'Auto' is ingeschakeld, past de hoogte zich automatisch aan de inhoud aan.",
+      "layout": "Indeling",
+      "columns": "Aantal kolommen:",
+      "columns-hint": "Meer kolommen werken beter met bredere vensters.",
+      "config-paths": "Configuratiebestanden",
+      "config-paths-description": "Geef aangepaste paden op naar uw sneltoetsen configuratiebestanden. De plugin volgt automatisch alle include/source richtlijnen.",
+      "hyprland-format-hint": "Verwacht formaat: bind = $mod, KEY, action #\"beschrijving\"\nCategorieen: # 1. CATEGORIENAAM",
+      "niri-format-hint": "Categorieen worden aangemaakt met: // #\"Categorienaam\"\nBeschrijvingen: hotkey-overlay-title=\"beschrijving\"",
+      "actions": "Acties",
+      "refresh-keybinds": "Sneltoetsen Vernieuwen",
+      "refresh-message": "Sneltoetsen worden opnieuw geladen wanneer u het paneel opent.",
+      "reset-defaults": "Standaardwaarden Herstellen",
+      "reset-message": "Instellingen zijn teruggezet naar standaardwaarden.",
+      "saved": "Instellingen succesvol opgeslagen.",
+      "keybind-setup": "Sneltoets Instelling",
+      "keybind-setup-description": "Om het cheatsheet met een sneltoets te openen, voeg deze binding toe aan je compositor configuratie:",
+      "keybind-example-hyprland": "Hyprland: bind = $mod, F1, exec, qs -c \"noctalia-shell\" ipc call plugin:keybind-cheatsheet toggle",
+      "keybind-example-niri": "Niri: Super+F1 { spawn \"qs\" \"-c\" \"noctalia-shell\" \"ipc\" \"call\" \"plugin\" \"togglePanel\" \"keybind-cheatsheet\"; }",
+      "mod-var": "Mod-toets Variabele",
+      "mod-var-hint": "De variabelenaam die wordt gebruikt voor uw Super-toets (bijv. $mod of $mainMod).",
+      "width-range": "px (400-3000)",
+      "height-range": "px (300-2000)",
+      "hyprland-path": "Hyprland pad",
+      "niri-path": "Niri pad"
+    },
+    "barwidget": {
+      "tooltip": "Sneltoetsen Spiekbriefje",
+      "open": "Spiekbriefje openen",
+      "settings": "Plugin instellingen"
+    }
+  }
+}

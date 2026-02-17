@@ -1,0 +1,62 @@
+{
+  "keybind-cheatsheet": {
+    "default-category": "Raccourcis clavier",
+    "error": {
+      "unsupported-compositor": "Compositeur non pris en charge",
+      "sway-not-supported": "Sway n'est pas encore pris en charge",
+      "sway-detail": "La prise en charge de Sway pourrait être ajoutée dans une future mise à jour (format similaire à Hyprland)",
+      "labwc-not-supported": "LabWC n'est pas pris en charge",
+      "labwc-detail": "LabWC utilise un format de configuration XML incompatible avec ce plugin",
+      "mango-not-supported": "MangoWC n'est pas pris en charge",
+      "mango-detail": "Le format de configuration MangoWC n'est pas compatible avec ce plugin",
+      "unknown-compositor": "Compositeur inconnu détecté",
+      "unknown-detail": "Ce plugin ne prend en charge que les compositeurs Hyprland et Niri"
+    },
+    "panel": {
+      "loading": "Chargement...",
+      "title": "Carte des touches",
+      "title-hyprland": "Carte des touches Hyprland",
+      "title-niri": "Carte des touches Niri",
+      "workspace-switching": "ESPACES DE TRAVAIL - BASCULER",
+      "workspace-moving": "ESPACES DE TRAVAIL - DÉPLACER",
+      "workspace-mouse": "ESPACES DE TRAVAIL - SOURIS"
+    },
+    "settings": {
+      "title": "Parametres des Raccourcis Clavier",
+      "description": "Configurez l'apparence et les sources des raccourcis clavier pour le panneau.",
+      "window-size": "Taille de la Fenetre",
+      "width": "Largeur:",
+      "height": "Hauteur:",
+      "auto-height": "Auto",
+      "auto-height-hint": "Lorsque 'Auto' est active, la hauteur s'ajuste automatiquement au contenu.",
+      "layout": "Disposition",
+      "columns": "Nombre de colonnes:",
+      "columns-hint": "Plus de colonnes fonctionnent mieux avec des fenetres plus larges.",
+      "config-paths": "Fichiers de Configuration",
+      "config-paths-description": "Specifiez des chemins personnalises vers vos fichiers de configuration de raccourcis. Le plugin suivra automatiquement toutes les directives include/source.",
+      "hyprland-format-hint": "Format attendu: bind = $mod, KEY, action #\"description\"\nCategories: # 1. NOM DE CATEGORIE",
+      "niri-format-hint": "Les categories sont creees avec: // #\"Nom de categorie\"\nDescriptions: hotkey-overlay-title=\"description\"",
+      "actions": "Actions",
+      "refresh-keybinds": "Actualiser les Raccourcis",
+      "refresh-message": "Les raccourcis seront recharges a l'ouverture du panneau.",
+      "reset-defaults": "Reinitialiser par Defaut",
+      "reset-message": "Les parametres ont ete reinitialises par defaut.",
+      "saved": "Parametres enregistres avec succes.",
+      "keybind-setup": "Configuration du Raccourci",
+      "keybind-setup-description": "Pour ouvrir le cheatsheet avec un raccourci clavier, ajoutez ce bind a la configuration de votre compositeur:",
+      "keybind-example-hyprland": "Hyprland: bind = $mod, F1, exec, qs -c \"noctalia-shell\" ipc call plugin:keybind-cheatsheet toggle",
+      "keybind-example-niri": "Niri: Super+F1 { spawn \"qs\" \"-c\" \"noctalia-shell\" \"ipc\" \"call\" \"plugin\" \"togglePanel\" \"keybind-cheatsheet\"; }",
+      "mod-var": "Variable de Touche Mod",
+      "mod-var-hint": "Le nom de la variable utilisée pour votre touche Super (ex. $mod ou $mainMod).",
+      "width-range": "px (400-3000)",
+      "height-range": "px (300-2000)",
+      "hyprland-path": "Chemin Hyprland",
+      "niri-path": "Chemin Niri"
+    },
+    "barwidget": {
+      "tooltip": "Aide-mémoire des raccourcis",
+      "open": "Ouvrir l'aide-mémoire",
+      "settings": "Paramètres du plugin"
+    }
+  }
+}

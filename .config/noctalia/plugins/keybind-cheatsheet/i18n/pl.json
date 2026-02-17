@@ -1,0 +1,62 @@
+{
+  "keybind-cheatsheet": {
+    "default-category": "Skróty klawiszowe",
+    "error": {
+      "unsupported-compositor": "Nieobsługiwany kompozytor",
+      "sway-not-supported": "Sway nie jest jeszcze obsługiwany",
+      "sway-detail": "Obsługa Sway może zostać dodana w przyszłej aktualizacji (podobny format do Hyprland)",
+      "labwc-not-supported": "LabWC nie jest obsługiwany",
+      "labwc-detail": "LabWC używa formatu konfiguracji XML, który jest niekompatybilny z tą wtyczką",
+      "mango-not-supported": "MangoWC nie jest obsługiwany",
+      "mango-detail": "Format konfiguracji MangoWC nie jest kompatybilny z tą wtyczką",
+      "unknown-compositor": "Wykryto nieznany kompozytor",
+      "unknown-detail": "Ta wtyczka obsługuje tylko kompozytory Hyprland i Niri"
+    },
+    "panel": {
+      "loading": "Ladowanie...",
+      "title": "Mapa klawiszy",
+      "title-hyprland": "Mapa klawiszy Hyprland",
+      "title-niri": "Mapa klawiszy Niri",
+      "workspace-switching": "OBSZARY ROBOCZE - PRZEŁĄCZANIE",
+      "workspace-moving": "OBSZARY ROBOCZE - PRZENOSZENIE",
+      "workspace-mouse": "OBSZARY ROBOCZE - MYSZ"
+    },
+    "settings": {
+      "title": "Ustawienia Skrotow Klawiszowych",
+      "description": "Skonfiguruj wyglad i zrodla skrotow klawiszowych dla panelu.",
+      "window-size": "Rozmiar Okna",
+      "width": "Szerokosc:",
+      "height": "Wysokosc:",
+      "auto-height": "Auto",
+      "auto-height-hint": "Gdy 'Auto' jest wlaczone, wysokosc dostosowuje sie automatycznie do zawartosci.",
+      "layout": "Uklad",
+      "columns": "Liczba kolumn:",
+      "columns-hint": "Wiecej kolumn dziala lepiej z szerszymi oknami.",
+      "config-paths": "Pliki Konfiguracyjne",
+      "config-paths-description": "Okresl wlasne sciezki do plikow konfiguracyjnych skrotow klawiszowych. Plugin automatycznie przetworzy odpowiedni plik na podstawie Twojego kompozytora i podazy za dyrektywami include/source.",
+      "hyprland-format-hint": "Oczekiwany format: bind = $mod, KEY, action #\"opis\"\nKategorie: # 1. NAZWA KATEGORII",
+      "niri-format-hint": "Kategorie tworzy sie przez: // #\"Nazwa kategorii\"\nOpisy: hotkey-overlay-title=\"opis\"",
+      "actions": "Akcje",
+      "refresh-keybinds": "Odswiez Skroty",
+      "refresh-message": "Skroty zostana przeladowane po otwarciu panelu.",
+      "reset-defaults": "Przywroc Domyslne",
+      "reset-message": "Ustawienia zostaly przywrocone do domyslnych.",
+      "saved": "Ustawienia zapisane pomyslnie.",
+      "keybind-setup": "Konfiguracja Skrotu",
+      "keybind-setup-description": "Aby otworzyc cheatsheet skrotem klawiszowym, dodaj ten bind do konfiguracji kompozytora:",
+      "keybind-example-hyprland": "Przyklad Hyprland: bind = $mod, F1, exec, qs -c \"noctalia-shell\" ipc call plugin:keybind-cheatsheet toggle",
+      "keybind-example-niri": "Przyklad Niri: Super+F1 { spawn \"qs\" \"-c\" \"noctalia-shell\" \"ipc\" \"call\" \"plugin\" \"togglePanel\" \"keybind-cheatsheet\"; }",
+      "mod-var": "Zmienna klawisza Mod",
+      "mod-var-hint": "Nazwa zmiennej używanej dla klawisza Super (np. $mod lub $mainMod).",
+      "width-range": "px (400-3000)",
+      "height-range": "px (300-2000)",
+      "hyprland-path": "Ścieżka Hyprland",
+      "niri-path": "Ścieżka Niri"
+    },
+    "barwidget": {
+      "tooltip": "Ściągawka skrótów klawiszowych",
+      "open": "Otwórz ściągawkę",
+      "settings": "Ustawienia wtyczki"
+    }
+  }
+}

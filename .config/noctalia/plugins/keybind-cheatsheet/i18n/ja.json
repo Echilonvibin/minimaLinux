@@ -1,0 +1,62 @@
+{
+  "keybind-cheatsheet": {
+    "default-category": "キーバインド",
+    "error": {
+      "unsupported-compositor": "サポートされていないコンポジター",
+      "sway-not-supported": "Swayはまだサポートされていません",
+      "sway-detail": "Swayのサポートは将来のアップデートで追加される可能性があります（Hyprlandと同様の形式）",
+      "labwc-not-supported": "LabWCはサポートされていません",
+      "labwc-detail": "LabWCはこのプラグインと互換性のないXML設定形式を使用しています",
+      "mango-not-supported": "MangoWCはサポートされていません",
+      "mango-detail": "MangoWCの設定形式はこのプラグインと互換性がありません",
+      "unknown-compositor": "不明なコンポジターが検出されました",
+      "unknown-detail": "このプラグインはHyprlandとNiriコンポジターのみをサポートしています"
+    },
+    "panel": {
+      "loading": "読み込み中...",
+      "title": "キーマップ",
+      "title-hyprland": "Hyprland キーマップ",
+      "title-niri": "Niri キーマップ",
+      "workspace-switching": "ワークスペース - 切り替え",
+      "workspace-moving": "ワークスペース - 移動",
+      "workspace-mouse": "ワークスペース - マウス"
+    },
+    "settings": {
+      "title": "キーバインド一覧の設定",
+      "description": "パネルの外観とキーバインドソースを設定します。",
+      "window-size": "ウィンドウサイズ",
+      "width": "幅:",
+      "height": "高さ:",
+      "auto-height": "自動",
+      "auto-height-hint": "「自動」が有効な場合、高さはコンテンツに合わせて自動調整されます。",
+      "layout": "レイアウト",
+      "columns": "列数:",
+      "columns-hint": "列が多いほど、幅の広いウィンドウで効果的です。",
+      "config-paths": "設定ファイル",
+      "config-paths-description": "キーバインド設定ファイルへのカスタムパスを指定します。プラグインは自動的にすべてのinclude/sourceディレクティブに従います。",
+      "hyprland-format-hint": "期待される形式: bind = $mod, KEY, action #\"説明\"\nカテゴリ: # 1. カテゴリ名",
+      "niri-format-hint": "カテゴリは次の形式で作成: // #\"カテゴリ名\"\n説明: hotkey-overlay-title=\"説明\"",
+      "actions": "アクション",
+      "refresh-keybinds": "キーバインドを更新",
+      "refresh-message": "パネルを開くとキーバインドが再読み込みされます。",
+      "reset-defaults": "デフォルトにリセット",
+      "reset-message": "設定がデフォルトにリセットされました。",
+      "saved": "設定が正常に保存されました。",
+      "keybind-setup": "キーバインド設定",
+      "keybind-setup-description": "キーボードショートカットでチートシートを開くには、このバインドをコンポジター設定に追加してください:",
+      "keybind-example-hyprland": "Hyprland: bind = $mod, F1, exec, qs -c \"noctalia-shell\" ipc call plugin:keybind-cheatsheet toggle",
+      "keybind-example-niri": "Niri: Super+F1 { spawn \"qs\" \"-c\" \"noctalia-shell\" \"ipc\" \"call\" \"plugin\" \"togglePanel\" \"keybind-cheatsheet\"; }",
+      "mod-var": "Modキー変数",
+      "mod-var-hint": "Superキーに使用される変数名（例: $mod または $mainMod）。",
+      "width-range": "px (400-3000)",
+      "height-range": "px (300-2000)",
+      "hyprland-path": "Hyprland パス",
+      "niri-path": "Niri パス"
+    },
+    "barwidget": {
+      "tooltip": "キーバインドチートシート",
+      "open": "チートシートを開く",
+      "settings": "プラグイン設定"
+    }
+  }
+}

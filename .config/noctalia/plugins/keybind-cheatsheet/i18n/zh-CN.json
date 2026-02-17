@@ -1,0 +1,62 @@
+{
+  "keybind-cheatsheet": {
+    "default-category": "快捷键",
+    "error": {
+      "unsupported-compositor": "不支持的合成器",
+      "sway-not-supported": "尚不支持 Sway",
+      "sway-detail": "Sway 支持可能会在未来更新中添加（与 Hyprland 格式类似）",
+      "labwc-not-supported": "不支持 LabWC",
+      "labwc-detail": "LabWC 使用与此插件不兼容的 XML 配置格式",
+      "mango-not-supported": "不支持 MangoWC",
+      "mango-detail": "MangoWC 配置格式与此插件不兼容",
+      "unknown-compositor": "检测到未知的合成器",
+      "unknown-detail": "此插件仅支持 Hyprland 和 Niri 合成器"
+    },
+    "panel": {
+      "loading": "加载中...",
+      "title": "按键映射",
+      "title-hyprland": "Hyprland 按键映射",
+      "title-niri": "Niri 按键映射",
+      "workspace-switching": "工作区 - 切换",
+      "workspace-moving": "工作区 - 移动",
+      "workspace-mouse": "工作区 - 鼠标"
+    },
+    "settings": {
+      "title": "快捷键速查表设置",
+      "description": "配置面板的外观和快捷键来源。",
+      "window-size": "窗口大小",
+      "width": "宽度:",
+      "height": "高度:",
+      "auto-height": "自动",
+      "auto-height-hint": "启用\"自动\"时，高度会根据内容自动调整。",
+      "layout": "布局",
+      "columns": "列数:",
+      "columns-hint": "更多列在较宽的窗口中效果更好。",
+      "config-paths": "配置文件",
+      "config-paths-description": "指定快捷键配置文件的自定义路径。插件会自动跟随所有include/source指令。",
+      "hyprland-format-hint": "预期格式: bind = $mod, KEY, action #\"描述\"\n类别: # 1. 类别名称",
+      "niri-format-hint": "类别使用以下格式创建: // #\"类别名称\"\n描述: hotkey-overlay-title=\"描述\"",
+      "actions": "操作",
+      "refresh-keybinds": "刷新快捷键",
+      "refresh-message": "打开面板时将重新加载快捷键。",
+      "reset-defaults": "恢复默认",
+      "reset-message": "设置已恢复为默认值。",
+      "saved": "设置保存成功。",
+      "keybind-setup": "快捷键设置",
+      "keybind-setup-description": "要使用键盘快捷键打开速查表，请将此绑定添加到合成器配置中:",
+      "keybind-example-hyprland": "Hyprland: bind = $mod, F1, exec, qs -c \"noctalia-shell\" ipc call plugin:keybind-cheatsheet toggle",
+      "keybind-example-niri": "Niri: Super+F1 { spawn \"qs\" \"-c\" \"noctalia-shell\" \"ipc\" \"call\" \"plugin\" \"togglePanel\" \"keybind-cheatsheet\"; }",
+      "mod-var": "Mod 键变量",
+      "mod-var-hint": "用于 Super 键的变量名称（例如 $mod 或 $mainMod）。",
+      "width-range": "px (400-3000)",
+      "height-range": "px (300-2000)",
+      "hyprland-path": "Hyprland 路径",
+      "niri-path": "Niri 路径"
+    },
+    "barwidget": {
+      "tooltip": "快捷键速查表",
+      "open": "打开速查表",
+      "settings": "插件设置"
+    }
+  }
+}
