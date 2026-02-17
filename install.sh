@@ -332,31 +332,21 @@ deploy_configs() {
         return
     fi
 
-    for component in hypr kitty rofi fastfetch fish; do
-        SOURCE_PATH="$CONFIG_SOURCE_ROOT/$component"
-        TARGET_PATH="$CONFIG_DIR/$component"
-        
-        if [ ! -d "$SOURCE_PATH" ]; then
-            echo "Error: Source configuration directory '$SOURCE_PATH' not found."
-            continue
-        fi
-
-        if [ -d "$TARGET_PATH" ] || [ -L "$TARGET_PATH" ]; then
-            TIMESTAMP=$(date +%Y%m%d%H%M%S)
-            echo "Existing $component config found. Creating backup: $TARGET_PATH.bak.$TIMESTAMP"
-            mv "$TARGET_PATH" "$TARGET_PATH.bak.$TIMESTAMP"
-        fi
-        
-        echo "Copying $component configuration: $SOURCE_PATH -> $TARGET_PATH"
-        cp -a "$SOURCE_PATH" "$TARGET_PATH"
-        
-        if [ $? -ne 0 ]; then
-            echo "NON-FATAL ERROR: Failed to copy configuration files for $component."
-        fi
+    # Ensure target .config directory exists
+    sudo -u "$ACTUAL_USER" mkdir -p "$CONFIG_DIR"
+    
+    # Copy all contents from repo/.config to ~/.config
+    echo "Copying all configuration files from $CONFIG_SOURCE_ROOT to $CONFIG_DIR..."
+    cp -rf "$CONFIG_SOURCE_ROOT"/* "$CONFIG_DIR"/
+    
+    if [ $? -eq 0 ]; then
+        echo "Configuration files copied successfully!"
         
         # Fix ownership since we're running as root
-        chown -R "$ACTUAL_USER:$ACTUAL_USER" "$TARGET_PATH"
-    done
+        chown -R "$ACTUAL_USER:$ACTUAL_USER" "$CONFIG_DIR"
+    else
+        echo "ERROR: Failed to copy configuration files."
+    fi
 }
 
 
