@@ -116,6 +116,7 @@ PACKAGES=(
     cpupower                  # CPU frequency scaling utilities
     upower                    # Power management service
     gpu-screen-recorder       # Screen Recorder
+    qt6ct                     # Qt Settings
 )
 
 OPTIONALPKG=(
