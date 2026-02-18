@@ -1,161 +1,205 @@
-format = """
-$username\
-[](fg:re2 bg:re0)\
-$directory\
-[](fg:re0 bg:cy2)\
-$git_branch\
-$git_status\
-$c\
-$elixir\
-$elm\
-$golang\
-$gradle\
-$haskell\
-$java\
-$julia\
-$nodejs\
-$nim\
-$rust\
-$scala\
-$docker_context\
-$time\
-[ ](fg:cy2)\
-"""
+"$schema" = 'https://starship.rs/config-schema.json'
 
-palette = "cybr_ship"
+[aws]
+symbol = " "
 
-[username]
-show_always = true
-style_user = "bg:re2 fg:re0"
-format = '[ $user ]($style)'
-disabled = false
+[buf]
+symbol = " "
 
-[directory]
-style = "fg:re2 bg:re0"
-format = "[ $path ](bold $style)"
-truncation_length = 3
-truncation_symbol = "…/"
-
-[character]
-success_symbol = "[❯](fg:cy0)"
-error_symbol = "[](fg:re0)"
-vicmd_symbol = "[󰆤](fg:ye0)"
-format = "$symbol "
-
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "fg:cy0 bg:cy2"
-format = '[ $time ]($style)'
-
-[custom.transient_time]
-disabled = false
-command = 'date "+%H:%M"'
-when = 'true'
-format = "[$output](fg:cy0)"
-
-[palettes.cybr_ship]
-re0 = "#F24848"
-re2 = "#331215"
-
-gr0 = "#30F291"
-gr2 = "#0C3423"
-
-ye0 = "#F2D230"
-ye2 = "#332D10"
-
-bl0 = "#3061F2"
-bl2 = "#0C1737"
-
-pu0 = "#A130F2"
-pu2 = "#230D37"
-
-cy0 = "#29BECC"
-cy2 = "#0B292F"
-
-wh0 = "#898D99"
-wh2 = "#1E2025"
-
-me0 = "#4D5A80"
-me2 = "#0D1120"
-
-or0 = "#F23D18"
-or2 = "#330F0B"
-
-[git_branch]
-symbol = ""
-style = "bg:pu2 fg:pu0"
-format = "[ $symbol $branch ]($style)"
-
-[git_status]
-style = "bg:pu2 fg:pu0"
-format = "[ $all_status$ahead_behind ]($style)"
+[bun]
+symbol = " "
 
 [c]
-symbol = ""
-style = "bg:bl2 fg:bl0"
-format = "[](fg:pu2 bg:bl2)[ $symbol ($version) ]($style)"
+symbol = " "
 
 [cpp]
-symbol = ""
-style = "bg:bl2 fg:bl0"
-format = "[ $symbol ($version) ]($style)"
+symbol = " "
 
-[elm]
-symbol = ""
-style = "bg:bl2 fg:bl0"
-format = "[ $symbol ($version) ]($style)"
+[cmake]
+symbol = " "
 
-[golang]
-symbol = ""
-style = "bg:bl2 fg:bl0"
-format = "[ $symbol ($version) ]($style)"
+[conda]
+symbol = " "
 
-[gradle]
-style = "bg:cy2 fg:cy0"
-format = "[](fg:bl2 bg:cy2)[ $symbol ($version) ]($style)"
+[crystal]
+symbol = " "
 
-[julia]
-symbol = ""
-style = "bg:cy2 fg:cy0"
-format = "[ $symbol ($version) ]($style)"
+[dart]
+symbol = " "
 
-[java]
-symbol = ""
-style = "bg:or2 fg:or0"
-format = "[](fg:cy2 bg:or2)[ $symbol ($version) ]($style)"
+[deno]
+symbol = " "
 
-[rust]
-symbol = ""
-style = "bg:or2 fg:or0"
-format = "[ $symbol ($version) ]($style)"
-
-[python]
-symbol = ""
-style = "bg:ye2 fg:ye0"
-format = "[](fg:or2 bg:ye2)[ $symbol ($version) ]($style)"
-
-[nim]
-symbol = "󰆥"
-style = "bg:ye2 fg:ye0"
-format = "[ $symbol ($version) ]($style)"
-
-[haskell]
-symbol = ""
-style = "bg:pu2 fg:pu0"
-format = "[](fg:ye2 bg:pu2)[ $symbol ($version) ]($style)"
-
-[elixir]
-symbol = ""
-style = "bg:pu2 fg:pu0"
-format = "[ $symbol ($version) ]($style)"
-
-[scala]
-symbol = ""
-style = "bg:re2 fg:re0"
-format = "[](fg:pu2 bg:re2)[ $symbol ($version) ]($style)"
+[directory]
+read_only = " 󰌾"
 
 [docker_context]
-symbol = ""
-style = "bg:bl2 fg:bl0"
-format = "[](fg:re2 bg:bl2)[ $symbol $context ]($style)"
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fennel]
+symbol = " "
+
+[fortran]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[gcloud]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[git_commit]
+tag_symbol = '  '
+
+[golang]
+symbol = " "
+
+[gradle]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[ocaml]
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Elementary = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Ios = "󰀷 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+Zorin = " "
+
+[package]
+symbol = "󰏗 "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[pijul_channel]
+symbol = " "
+
+[pixi]
+symbol = "󰏗 "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = "󱘗 "
+
+[scala]
+symbol = " "
+
+[status]
+symbol = " "
+
+[swift]
+symbol = " "
+
+[xmake]
+symbol = " "
+
+[zig]
+symbol = " "
