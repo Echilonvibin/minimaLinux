@@ -14,6 +14,8 @@ hl.window_rule({ match = { class = "^io\\.missioncenter\\.MissionCenter$" },    
 hl.window_rule({ match = { class = "^org\\.pulseaudio\\.pavucontrol$" },                  float = true, size = "1221 619", })
 hl.window_rule({ match = { title = "^File Operation Progress$" },                         float = true, size = "600 50", })
 hl.window_rule({ match = { class = "^xfce-polkit$" },                                     float = true, size = "600 50", })
+hl.window_rule({ match = { class = "^[Ss]team$", title = "^.*$" }, float = true })
+hl.window_rule({ match = { class = "^steamwebhelper$", title = "^Friends List$" }, float = true })
 
 -- Idle inhibit rules
 hl.window_rule({ match = { class = "^(.*celluloid.*|.*mpv.*|.*vlc.*)$" },                                                                                            idle_inhibit = "fullscreen" })
